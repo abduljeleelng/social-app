@@ -1,0 +1,41 @@
+.head{
+  padding-top: 10rem;
+  padding-bottom: calc(10rem - 72px);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(236, 175, 0, 0.5)), to(rgba(253, 199, 64, 0.5))), url("header-bg.jpg");
+  background: linear-gradient(to bottom, rgba(253, 199, 64, 0.5) 0%, rgba(236, 175, 0, 0.5) 100%), url("header-bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+  min-height:400hr;
+}
+.header{
+  background-color: #000;
+  color: #fff;
+  max-height: 50;
+}
+.text-logo{
+  margin-top: 30px;
+  font-size: larger;
+  font-weight: bolder;
+}
+.reg{
+  padding-top: 100;
+}
+.regBox{
+  background-color: green($color: #000000);
+}
+footer{
+  margin: 20;
+  padding: 20;
+  background-color: #fff;
+  color: green;
+  width: 350;
+}
+footer ul{
+  margin-top: 50;
+}
+footer ul li{
+  display: block;
+  margin: 2px 5px;
+}
