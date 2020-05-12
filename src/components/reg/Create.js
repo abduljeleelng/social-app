@@ -21,13 +21,14 @@ export default function Create() {
         month:'',
         year:'',
         gender:'',
+        activated:false,
         loading:false,
         show:false,
         error:'',
         message:'',
     });
 
-    const { firstName,lastName, email, password,day,month,year,gender,loading,error } = values;
+    const { firstName,lastName, email, password,day,month,year,gender,loading,error,activated } = values;
   
     const months = ["Select Month","January","February","March","Appril","May","June","July","August","Septmber","Octomber","November","December"];
     const days = ['Select Day',1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,];
@@ -50,7 +51,7 @@ export default function Create() {
         if(day==="" || month==="" || year==="") return setValues({...values,loading:false,error:'Please, fill date of birth correctly'});
         const activationCode = getReference();
         console.log(JSON.stringify({day,month,year}))
-        signup({firstName,lastName,email,password,day,month,year,gender,activationCode})
+        signup({firstName,lastName,email,password,day,month,year,gender,activationCode,activated})
         .then(data=>{
             if(data === undefined) return setValues({...values,error:'network interruption',loading:false});
             if(data.errors) return setValues({...values,error:data.errors,loading:false});
