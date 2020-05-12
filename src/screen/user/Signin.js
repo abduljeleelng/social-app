@@ -15,11 +15,12 @@ export default class Signin extends Component {
             <div>
                 <SignInHeader />
                 <Create />
+                <Footer />
                 <BackgroundSlider
                     images={[bg1,bg2,bg3,bg4,bg5]}
                     duration={10} transition={2} 
                 />
-                <Footer />
+                
             </div>
         )
     }
