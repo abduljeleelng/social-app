@@ -15,6 +15,21 @@ export const signup = user => {
         .catch(err => console.log(err));
 };
 
+export const activation = activationCode =>{
+    return fetch(`${API }/activate`, {
+        method: "PUT",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(activationCode)
+    })
+    .then(response => {
+        return response.json();
+    })
+    .catch(err => console.log(err));
+};
+
 export const signin = user => {
     return fetch(`${API}/signin`, {
         method: "POST",

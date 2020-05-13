@@ -4,7 +4,8 @@ import Swal from 'sweetalert2';
 //import withReactContent from 'sweetalert2-react-content';
 //const MySwal = withReactContent(Swal);
 
-import {signup} from '../../auth';
+import {signup,activation} from '../../auth';
+import {API} from '../../Config';
 
 function validateEmail(email) {
     var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -77,32 +78,60 @@ export default function Create() {
                     confirmButtonText: 'Confirm',
                     confirmButtonColor: '#3085d6',
                     showLoaderOnConfirm: true,
-                    preConfirm: (login) => {
-                        console.log(JSON.stringify(login))
-                      return fetch(`//api.github.com/users/${login}`)
+                    preConfirm: (activationCode) => {
+                        //console.log(JSON.stringify({activationCode}))
+                        activation(activationCode).then(data=>{
+                            console.log(JSON.stringify(data))
+                            if(data.message) {
+                                Swal.fire({
+                                  title:data.message,
+                                  icon: 'success',
+                                  confirmButtonText: 'Confirm',
+                                  confirmButtonColor: '#3085d6',
+                                  showLoaderOnConfirm: true,
+                                  preConfirm:()=>{
+                                      console.log('redirect')
+                                  }
+                                })
+                              }
+                              if(data.error) {
+                                  Swal.fire({
+                                    title:data.error,
+                                  })
+                              }
+
+                        })
+                        .catch(error => {
+                            Swal.showValidationMessage(
+                              `Request failed: ${error}`
+                            )
+                        })
+
+                     /* return fetch(`${API}/activate`,{
+                        method: "PUT",
+                        headers: {
+                            Accept: "application/json",
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(activationCode)
+                     })
+                     .then(response => {
+                         return response.json();
+                     })
                         .then(response => {
                           if (!response.ok) {
                             throw new Error(response.statusText)
                           }
                           return response.json()
                         })
-                        .catch(error => {
-                          Swal.showValidationMessage(
-                            `Request failed: ${error}`
-                          )
-                        })
+                        */
+                      
                     },
                    // allowOutsideClick: () => !Swal.isLoading()
                    allowOutsideClick:false
                   }).then((result) => {
-                      console.log(JSON.stringify({result, answer:'result from call back'}))
-                    if (result.value) {
-                      Swal.fire({
-                        title: `${result.value.login}'s avatar`,
-                        imageUrl: result.value.avatar_url
-                      })
-                    }
-                  })
+                    //console.log(JSON.stringify({result, answer:'result from call back'}))
+                })
             }
         })
     }
@@ -150,7 +179,7 @@ export default function Create() {
             <Col md={4}>
             <FormGroup>
             <Label for="exampleSelect">Month</Label>
-            <Input onChange={handleChange('month')} value={month} type="select" name="select" id="exampleSelect">
+            <Input onChange={handleChange('month')} value={month} type="select" name="select" >
                 {
                     months.map((month,i)=>(
                         <option key={1} value={i}> {month}</option>
@@ -162,8 +191,8 @@ export default function Create() {
             <Col md={4}>
             <FormGroup>
             <Label for="exampleSelect">Year</Label>
-            <Input onChange={handleChange('year')} value={year} type="select" name="select" id="exampleSelect">
-            <option value={0}>Select Year</option>
+            <Input onChange={handleChange('year')} value={year} type="select" name="select">
+            <option >Select Year</option>
             {
                 years.map((year,i)=>(
                     <option key={i} value={year}> {year}</option>
