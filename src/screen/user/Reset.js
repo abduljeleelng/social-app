@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BackgroundSlider from 'react-background-slider'
-import {SignInHeader,ForgetPassword,Footer} from '../../components';
+import {SignInHeader, ResetPassword,Footer} from '../../components';
 
 import bg1 from '../../asset/img/slide/bg1.jpg';
 import bg2 from '../../asset/img/slide/bg2.jpg';
@@ -9,12 +9,12 @@ import bg4 from '../../asset/img/slide/bg4.png';
 import bg5 from '../../asset/img/slide/bg5.jpg';
 
 
-export default class Forget extends Component {
+export default class Reset extends Component {
     render() {
         return (
             <div>
                 <SignInHeader />
-                <ForgetPassword/>
+                <ResetPassword />
                 <Footer />
                 <BackgroundSlider
                     images={[bg1,bg2,bg3,bg4,bg5]}

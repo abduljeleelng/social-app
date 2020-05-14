@@ -1,12 +1,14 @@
 import React from 'react';
 import {Switch,Route} from 'react-router-dom';
-import { Signin,Activate } from './screen';
+import {Activate,Reset,Forget,Home } from './screen';
 import PrivateRoute from './auth/PrivateRoute';
 export default function MainRoutes() {
     return (
         <Switch>
-            <Route exact path="/" component={Signin} />
+            <PrivateRoute exact path="/" component={Home} />
             <Route exact path="/user/activate/:code" component={Activate} />
+            <Route exact path="/user/forget/" component={Forget} />
+            <Route exact path="/user/reset-password/:code" component={Reset} />
         </Switch>
     )
 }
