@@ -1,5 +1,5 @@
 import React,{useState}from 'react';
-import {Container, Row, Col,Form,FormGroup,Label,Input,} from 'reactstrap';
+import {Container, Row, Col,Form,FormGroup,Input,} from 'reactstrap';
 import Swal from 'sweetalert2';
 //import withReactContent from 'sweetalert2-react-content';
 //const MySwal = withReactContent(Swal);
