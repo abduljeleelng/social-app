@@ -8,7 +8,7 @@ import {resetPassword} from '../../auth';
 import { Redirect } from 'react-router-dom';
 
 
-export default function Create() {
+export default function Create({resetPasswordLink}) {
     const [values, setValues] = useState({
         password:'',
         password2:'',
@@ -27,7 +27,7 @@ export default function Create() {
         e.preventDefault();
         setValues({...values, loading:true});
         if(password !==password2 ) return setValues({...values,loading:false,error:'Password must match'});
-        resetPassword(password)
+        resetPassword({resetPasswordLink,password2})
         .then(data=>{
             if(data === undefined) return setValues({...values,error:'network interruption',loading:false});
             //if(data.errors) return setValues({...values,error:data.errors,loading:false});
