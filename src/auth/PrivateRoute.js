@@ -1,10 +1,10 @@
 import React from "react";
-import {BrowserRouter, Route} from "react-router-dom";
+import { Route, Switch} from "react-router-dom";
 import { isAuthenticated } from "./";
 import {Signin} from '../screen';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
-  <BrowserRouter>
+  <Switch>
     <Route
       {...rest}
       render={props =>
@@ -13,11 +13,13 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
           <Component {...props} />
         ) : 
         (
-          <Signin />
+         
+            <Signin />
+         
         )
       }
     />
-  </BrowserRouter>
+   </Switch>
 );
 /*
 function PrivateRouteTest({ children, ...rest }) {

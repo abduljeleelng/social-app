@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 
 import {signup,} from '../../auth';
 import {API} from '../../Config';
+import { Link } from 'react-router-dom';
 
 function validateEmail(email) {
     var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -242,6 +243,7 @@ export default function Create() {
                 <h2 className='text-success' style={{padding:10}}> Sign up for new Account !</h2>
                 <h2 className='text-danger' style={{padding:0}}> {error}</h2>
                 {signupForm()}
+                <p>Forget pasword ? <Link to="/user/forget">click here</Link> </p> 
                 </Col-6>
             </Row>
             </Col>

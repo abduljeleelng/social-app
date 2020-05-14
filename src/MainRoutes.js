@@ -7,7 +7,7 @@ export default function MainRoutes() {
         <Switch>
             <PrivateRoute exact path="/" component={Home} />
             <Route exact path="/user/activate/:code" component={Activate} />
-            <Route exact path="/user/forget/" component={Forget} />
+            <Route exact path="/user/forget" component={Forget} />
             <Route exact path="/user/reset-password/:code" component={Reset} />
         </Switch>
     )
