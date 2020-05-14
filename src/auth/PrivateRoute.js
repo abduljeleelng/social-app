@@ -1,21 +1,23 @@
 import React from "react";
 import {BrowserRouter, Route} from "react-router-dom";
 import { isAuthenticated } from "./";
-import {SignIn} from '../';
+import {Signin} from '../screen';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
-    <BrowserRouter>
-        <Route
-            {...rest}
-            render={props =>
-                isAuthenticated() ? (
-                    <Component {...props} />
-                ) : (
-                    <SignIn />
-                )
-            }
-        />
-    </BrowserRouter>
+  <BrowserRouter>
+    <Route
+      {...rest}
+      render={props =>
+        isAuthenticated() ? 
+        (
+          <Component {...props} />
+        ) : 
+        (
+          <Signin />
+        )
+      }
+    />
+  </BrowserRouter>
 );
 /*
 function PrivateRouteTest({ children, ...rest }) {

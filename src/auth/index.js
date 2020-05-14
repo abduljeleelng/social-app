@@ -16,13 +16,13 @@ export const signup = user => {
 };
 
 export const activation = activationCode =>{
-    return fetch(`${API }/activate`, {
+    return fetch(`${API }/active`, {
         method: "PUT",
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(activationCode)
+        body: JSON.stringify({activationCode})
     })
     .then(response => {
         return response.json();
