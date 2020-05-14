@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 //import withReactContent from 'sweetalert2-react-content';
 //const MySwal = withReactContent(Swal);
 
-import {signup,activation} from '../../auth';
+import {signup,} from '../../auth';
 import {API} from '../../Config';
 
 function validateEmail(email) {
@@ -51,17 +51,22 @@ export default function Create() {
         if(!validateEmail(email)) return setValues({...values,loading:false,error:'Please, enter a valid email address'});
         if(day==="" || month==="" || year==="") return setValues({...values,loading:false,error:'Please, fill date of birth correctly'});
         const activationCode = getReference();
-        console.log(JSON.stringify({day,month,year}))
+        
         signup({firstName,lastName,email,password,day,month,year,gender,activationCode,activated})
         .then(data=>{
             if(data === undefined) return setValues({...values,error:'network interruption',loading:false});
             if(data.errors) return setValues({...values,error:data.errors,loading:false});
-            if(data.messages){ 
+            if(data.messages) { 
                 setValues({...values,loading:false,message:data.messages,show:true});
                 Swal.fire({
                     icon: 'success',
                     title: data.messages,
                     input: 'text',
+                    inputValidator: (activationCode) => {
+                        if (!activationCode) {
+                          return 'Enter activation code !'
+                        }
+                    },
                     inputPlaceholder: 'Enter Activation Code',
                     footer: '<a href>Having any issue : call 08037358707</a>',
                     inputAttributes: {
@@ -75,62 +80,61 @@ export default function Create() {
                         popup: 'animate__animated animate__fadeOutUp'
                     },
                     //showCancelButton: true,
-                    confirmButtonText: 'Confirm',
+                    confirmButtonText: 'Activate',
                     confirmButtonColor: '#3085d6',
                     showLoaderOnConfirm: true,
                     preConfirm: (activationCode) => {
-                        //console.log(JSON.stringify({activationCode}))
-                        activation(activationCode).then(data=>{
-                            console.log(JSON.stringify(data))
-                            if(data.message) {
-                                Swal.fire({
-                                  title:data.message,
-                                  icon: 'success',
-                                  confirmButtonText: 'Confirm',
-                                  confirmButtonColor: '#3085d6',
-                                  showLoaderOnConfirm: true,
-                                  preConfirm:()=>{
-                                      console.log('redirect')
-                                  }
-                                })
-                              }
-                              if(data.error) {
-                                  Swal.fire({
-                                    title:data.error,
-                                  })
-                              }
-
-                        })
-                        .catch(error => {
+                        return fetch(`${API}/active`,{
+                            method: "PUT",
+                            headers: {
+                                Accept: "application/json",
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({activationCode})
+                         })
+                         .then(response => {
+                            console.log(JSON.stringify(response))
+                            return response.json();
+                         })
+                         .catch(error => {
                             Swal.showValidationMessage(
-                              `Request failed: ${error}`
+                                `Request failed: ${error}`
                             )
-                        })
-
-                     /* return fetch(`${API}/activate`,{
-                        method: "PUT",
-                        headers: {
-                            Accept: "application/json",
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify(activationCode)
-                     })
-                     .then(response => {
-                         return response.json();
-                     })
-                        .then(response => {
-                          if (!response.ok) {
-                            throw new Error(response.statusText)
-                          }
-                          return response.json()
-                        })
-                        */
-                      
+                        })  
                     },
                    // allowOutsideClick: () => !Swal.isLoading()
                    allowOutsideClick:false
-                  }).then((result) => {
-                    //console.log(JSON.stringify({result, answer:'result from call back'}))
+                  })
+                  .then((result) => {
+                    const data = result.value;
+                    if(data.messages) {
+                        Swal.fire({
+                            title:data.messages,
+                            icon: 'success',
+                            confirmButtonText: 'Congrat !!',
+                            confirmButtonColor: '#3085d6',
+                            showLoaderOnConfirm: true,
+                            allowOutsideClick:false,
+                            preConfirm:()=>{
+                                setValues({...values,email:'',firstName:'',lastName:'',password:'',loading:false,});
+                                //console.log('redirect')
+                            }
+                        })
+                    }
+                    if(data.error) {
+                        Swal.fire({
+                            title:data.error,
+                            icon: 'error',
+                            allowOutsideClick:false,
+                            confirmButtonText: 'best of Luck',
+                            confirmButtonColor: '#3085d6',
+                            preConfirm:()=>{
+                                setValues({...values,email:'',firstName:'',lastName:'',password:'',loading:false,});
+                                //console.log('redirect')
+                            }
+                        })
+                    }
+
                 })
             }
         })
