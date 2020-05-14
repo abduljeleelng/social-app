@@ -87,7 +87,7 @@ export default function Create() {
             <Col md={6}>
             <FormGroup>
             {
-                loading ? <h6>Loadiing ..</h6> : <Input className="btn btn-success" onClick={handleSignup} type="submit" value="Sign up" />
+                loading ? <h6>Loadiing ..</h6> : <Input className="btn btn-success" onClick={handleSignup} type="submit" value="Request .." />
             }
             </FormGroup>
             </Col>

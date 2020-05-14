@@ -91,7 +91,7 @@ export default function Create({resetPasswordLink}) {
             <Col md={6}>
             <FormGroup>
             {
-                loading ? <h6>Loadiing ..</h6> : <Input className="btn btn-success" onClick={handleSignup} type="submit" value="Sign up" />
+                loading ? <h6>Loadiing ..</h6> : <Input className="btn btn-success" onClick={handleSignup} type="submit" value="Reset Password" />
             }
             </FormGroup>
             </Col>
