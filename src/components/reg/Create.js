@@ -187,7 +187,7 @@ export default function Create() {
             <Input onChange={handleChange('month')} value={month} type="select" name="select" >
                 {
                     months.map((month,i)=>(
-                        <option key={1} value={i}> {month}</option>
+                        <option key={i} value={i}> {month}</option>
                     ))
                 }
             </Input>
