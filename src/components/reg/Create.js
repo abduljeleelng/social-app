@@ -215,7 +215,7 @@ export default function Create() {
             <option>Select Gender</option>
             <option>Male</option>
             <option>Female</option>
-            <option>Custom</option>
+            <option>Non-Binary</option>
             </Input>
             </FormGroup>
             </Col>

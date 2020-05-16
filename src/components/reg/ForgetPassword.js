@@ -103,7 +103,7 @@ export default function Create() {
             <Col>
             <Row className="float-right regBox" style={{margin:20,backgroundColor:'#000',padding:20,borderRadius:20,opacity:0.9,boxShadow:1}}>
                 <Col-6 md="12" xs="12" xl="12" className="regBox" >
-                <h2 className='text-success' style={{padding:10}}> Paswword Reset Request !</h2>
+                <h2 className='text-success' style={{padding:10}}> Password Reset Request !</h2>
                 <hr />
                 <p>Please, enter a valid email associated with your account</p>
                 <h2 className='text-danger' style={{padding:0}}> {error}</h2>
