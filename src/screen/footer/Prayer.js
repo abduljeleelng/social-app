@@ -8,24 +8,26 @@ import bg2 from '../../asset/img/slide/bg2.jpg';
 import bg3 from '../../asset/img/slide/bg3.png';
 import bg4 from '../../asset/img/slide/bg4.png';
 import bg5 from '../../asset/img/slide/bg5.jpg';
+import { Col,Container,Row } from 'reactstrap';
+import prayer from '../../asset/img/beech.jpg';
 
 
 export default class Prayer extends Component {
-    state ={
-        redirect :false,
-        resetPasswordLink:'',
-    }
-
-    componentDidMount(){
-        const resetPasswordLink = this.props.match.params.code;
-        this.setState({resetPasswordLink})
-    }
     render() {
-        const {resetPasswordLink} = this.state;
         return (
             <div>
                 <SignInHeader />
-                <ResetPassword resetPasswordLink={resetPasswordLink} />
+                <Container >
+                <Row>
+                    <Col xs="12" md="12" sm="12" lg="12" xl="12"  className="center" style={{marginTop:10, backgroundColor:'#000',padding:4,borderRadius:20,opacity:0.9,boxShadow:1,}}>
+                        <h1 style={{alignContent:"center",margin:0}}>Iamacatholic Prayers Requests</h1>
+                        <img src={prayer} className="img-fluid" alt="catho"  />
+                    <p className="center" style={{fontSize:20}}>
+                    Iamacatholic’s mission is to bring together all Catholics worldwide,we strongly support all prayers, send all prayer requests to prayers@iamacatholic.org today or use the prayer request form once you are in your account. God bless 
+                    </p>
+                    </Col>
+                </Row>
+                </Container>
                 <Footer />
                 <BackgroundSlider
                     images={[bg1,bg2,bg3,bg4,bg5]}
