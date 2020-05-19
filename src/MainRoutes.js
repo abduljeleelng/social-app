@@ -1,6 +1,6 @@
 import React from 'react';
 import {Switch,Route} from 'react-router-dom';
-import {Activate,Reset,Forget,Home } from './screen';
+import {Activate,Reset,Forget,Home,About,Prayer,Privacy,Term,Help } from './screen';
 import PrivateRoute from './auth/PrivateRoute';
 export default function MainRoutes() {
     return (
@@ -9,6 +9,11 @@ export default function MainRoutes() {
             <Route exact path="/user/activate/:code" component={Activate} />
             <Route exact path="/user/forget" component={Forget} />
             <Route exact path="/user/reset-password/:code" component={Reset} />
+            <Route exact path="/about/about" component={About} />
+            <Route exact path="/about/privacy" component={Privacy} />
+            <Route exact path="/about/prayer" component={Prayer} />
+            <Route exact path="/about/term" component={Term} />
+            <Route exact path="/about/help" component={Help} />
         </Switch>
     )
 }

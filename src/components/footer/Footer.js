@@ -14,19 +14,19 @@ export default function Footer() {
                     <Col>
                     <ul >
                         <li>
-                            <Link to="/about"> About</Link>
+                            <Link to="/about/about"> About</Link>
                         </li>
                         <li>
-                            <Link to="/term"> Term </Link>
+                            <Link to="/about/term"> Term </Link>
                         </li>
                         <li>
-                            <Link to="/privacy"> Privacy </Link> 
+                            <Link to="/about/privacy"> Privacy </Link> 
                         </li>
                         <li>
-                            <Link to="/prayer"> Prayer</Link>
+                            <Link to="/about/prayer"> Prayer</Link>
                         </li>
                         <li>
-                            <Link to="/help"> Help </Link>
+                            <Link to="/about/help"> Help </Link>
                         </li>
                     </ul>
                     </Col>
