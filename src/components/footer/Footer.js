@@ -6,8 +6,6 @@ export default function Footer() {
     return (
         <footer>
             <Container>
-
-                <h5>I am a Catholic </h5>
                 <hr />
                 <Row>
                  
