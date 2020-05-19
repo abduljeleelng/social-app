@@ -69,7 +69,7 @@ export default function Create() {
                         }
                     },
                     inputPlaceholder: 'Enter Activation Code',
-                    footer: '<a href>Having any issue : call 08037358707</a>',
+                    //footer: '<a href>Having any issue : call 08037358707</a>',
                     inputAttributes: {
                       autocapitalize: 'off',
                       'aria-label': 'Enter your activation code'
@@ -215,7 +215,6 @@ export default function Create() {
             <option>Select Gender</option>
             <option>Male</option>
             <option>Female</option>
-            <option>Custom</option>
             </Input>
             </FormGroup>
             </Col>

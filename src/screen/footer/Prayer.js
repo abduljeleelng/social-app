@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BackgroundSlider from 'react-background-slider'
-import {SignInHeader, ResetPassword,Footer} from '../../components';
+import {SignInHeader, Footer} from '../../components';
 
 
 import bg1 from '../../asset/img/slide/bg1.jpg';
