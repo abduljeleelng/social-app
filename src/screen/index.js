@@ -3,4 +3,10 @@ import Activate from './user/Activate';
 import Reset from './user/Reset';
 import Forget from './user/Forget';
 import Home from './newsfeed/Home';
-export {Signin,Activate,Reset,Forget,Home}
+/**Footer files */
+import About from './footer/About';
+import Privacy from './footer/Privacy';
+import Prayer from './footer/Prayer';
+import Term from './footer/Term'; 
+import Help from './footer/Help';
+export {Signin,Activate,Reset,Forget,Home,About,Privacy,Prayer,Term,Help}
