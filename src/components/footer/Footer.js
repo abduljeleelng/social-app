@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
     return (
@@ -11,59 +12,22 @@ export default function Footer() {
                 <Row>
                  
                     <Col>
-                    <ul>
-                        <li>About</li>
-                        <li>Project</li>
-                        <li>Mission</li>
-                    </ul>
-                    </Col>
-                    <Col>
-                    <ul>
-                        <li>About</li>
-                        <li>Project</li>
-                        <li>Mission</li>
-                    </ul>
-                    </Col>
-                    <Col>
-                    <ul>
-                        <li>About</li>
-                        <li>Project</li>
-                        <li>Mission</li>
-                    </ul>
-                    </Col>
-                    <Col>
-                    <ul>
-                        <li>About</li>
-                        <li>Project</li>
-                        <li>Mission</li>
-                    </ul>
-                    </Col>
-                    <Col>
-                    <ul>
-                        <li>About</li>
-                        <li>Project</li>
-                        <li>Mission</li>
-                    </ul>
-                    </Col>
-                    <Col>
-                    <ul>
-                        <li>About</li>
-                        <li>Project</li>
-                        <li>Mission</li>
-                    </ul>
-                    </Col>
-                    <Col>
-                    <ul>
-                        <li>About</li>
-                        <li>Project</li>
-                        <li>Mission</li>
-                    </ul>
-                    </Col>
-                    <Col>
-                    <ul>
-                        <li>About</li>
-                        <li>Project</li>
-                        <li>Mission</li>
+                    <ul >
+                        <li>
+                            <Link to="/about"> About</Link>
+                        </li>
+                        <li>
+                            <Link to="/term"> Term </Link>
+                        </li>
+                        <li>
+                            <Link to="/privacy"> Privacy </Link> 
+                        </li>
+                        <li>
+                            <Link to="/prayer"> Prayer</Link>
+                        </li>
+                        <li>
+                            <Link to="/help"> Help </Link>
+                        </li>
                     </ul>
                     </Col>
                 </Row>

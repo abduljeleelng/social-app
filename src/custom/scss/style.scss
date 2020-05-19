@@ -33,9 +33,12 @@ footer{
   width: 350;
 }
 footer ul{
-  margin-top: 50;
+  margin:auto 50;
+  align-items: center;
+  align-self: center;
+  text-align: center;
 }
 footer ul li{
-  display: block;
+  display: inline;
   margin: 2px 5px;
 }

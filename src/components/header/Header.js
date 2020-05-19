@@ -92,7 +92,7 @@ export default function Header() {
                     <Row>
                         <Col md="6" xs="6" xl="6" >
                             <div className="text-logo">
-                             <img src={logo} alt="logo" height="50"  />  I am a Catholic
+                             <img src={logo} alt="logo" height="50"  />iamacatholic.org
                             </div>
                         </Col>
                         <Col md="6" xs="6" xl="6" >
