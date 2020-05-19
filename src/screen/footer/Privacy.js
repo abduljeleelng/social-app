@@ -23,7 +23,7 @@ export default class Privacy extends Component {
                 <Container >
                 <Row>
                     <Col xs="12" md="12" sm="12" lg="12" xl="12"  className="center" style={{marginTop:10, backgroundColor:'#000',padding:4,borderRadius:20,opacity:0.9,boxShadow:1,}}>
-                        <h1 style={{alignContent:"center",margin:0}}>Iamacatholic Copyright Policy & Privacy Policy</h1>
+                        <h1 style={{alignContent:"center",margin:0}}>Iamacatholic Copyright Policy</h1>
                         <img src={catho} alt="catho" style={{alignSelf:'center',float:'inline-start', margin:5}} />
                     <p style={{fontSize:12}}>
                     <b>Copyright Policy</b><br/>
