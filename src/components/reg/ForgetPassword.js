@@ -105,7 +105,7 @@ export default function Create() {
                 <Col-6 md="12" xs="12" xl="12" className="regBox" >
                 <h2 className='text-success' style={{padding:10}}> Password Reset Request !</h2>
                 <hr />
-                <p>Please, enter a valid email associated with your account</p>
+                <p>Please, enter a valid email address associated with your account</p>
                 <h2 className='text-danger' style={{padding:0}}> {error}</h2>
                 {signupForm()}
                 <p>Sign in  <Link to="/">click here</Link> </p> 

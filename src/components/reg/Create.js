@@ -157,7 +157,7 @@ export default function Create() {
         <Row form>
             <Col md={12}>
             <FormGroup>
-                <Input onChange={handleChange('email')} value={email} type="email"  placeholder="email" />
+                <Input onChange={handleChange('email')} value={email} type="email"  placeholder="Email" />
             </FormGroup>
             </Col>
         </Row>
@@ -240,7 +240,7 @@ export default function Create() {
             <Col>
             <Row className="float-right regBox" style={{margin:20,backgroundColor:'#000',padding:20,borderRadius:20,opacity:0.9,boxShadow:1}}>
                 <Col-6 md="12" xs="12" xl="12" className="regBox" >
-                <h2 className='text-success' style={{padding:10}}> Sign up for new Account !</h2>
+                <h2 className='text-success' style={{padding:10}}> Sign up for a new Account !</h2>
                 <h2 className='text-danger' style={{padding:0}}> {error}</h2>
                 {signupForm()}
                 <p>Forget pasword ? <Link to="/user/forget">click here</Link> </p> 
