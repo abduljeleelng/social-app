@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import { Link } from 'react-router-dom'
 //import { Container, Row, Col, Input } from 'reactstrap'
 
 export default function HomeHeader() {
@@ -8,12 +9,11 @@ export default function HomeHeader() {
   <div className="iq-navbar-custom">
     <nav className="navbar navbar-expand-lg navbar-light p-0">
       <div className="iq-navbar-logo d-flex justify-content-between">
-        <a href="index.html">
-          <img src="images/logo.png" className="img-fluid" alt="" />
-          <span>iamacatholic</span>
-        </a>
+        <Link to="/">
+          {/*<img src="images/logo.png" className="img-fluid" alt="iamacatholic.org" />*/}
+          <span>iamacatholic.org</span>
+        </Link>
         <div className="iq-menu-bt align-self-center">
-       
         </div>
       </div>
       <div className="iq-search-bar">
@@ -28,26 +28,27 @@ export default function HomeHeader() {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav ml-auto navbar-list">
           <li>
-            <a href="profile.html" className="iq-waves-effect d-flex align-items-center">
+            <Link to={`/${`user`}`} className="iq-waves-effect d-flex align-items-center">
               <img src="images/user/1.jpg" className="img-fluid rounded-circle mr-3" alt="user" />
               <div className="caption">
-                <h6 className="mb-0 line-height">Bni Cyst</h6>
+                <h6 className="mb-0 line-height">Yusuff</h6>
               </div>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="index.html" className="iq-waves-effect d-flex align-items-center">
+            <Link to="/" className="iq-waves-effect d-flex align-items-center">
               <i className="ri-home-line" />
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="search-toggle iq-waves-effect" href="fake"><i className="ri-group-line" /></a>
+            <a className="search-toggle iq-waves-effect" href><i className="ri-group-line" /></a>
             <div className="iq-sub-dropdown iq-sub-dropdown-large">
               <div className="iq-card shadow-none m-0">
                 <div className="iq-card-body p-0 ">
                   <div className="bg-primary p-3">
-                    <h5 className="mb-0 text-white">Friend Request<small className="badge  badge-light float-right pt-1">4</small></h5>
+                    <h5 className="mb-0 text-white">Friend Request<small className="badge  badge-light float-right pt-1"> 30 </small></h5>
                   </div>
+                  {/** Friend request card tag  */}
                   <div className="iq-friend-request">
                     <div className="iq-sub-card iq-sub-card-big d-flex align-items-center justify-content-between">
                       <div className="d-flex align-items-center">
@@ -60,62 +61,12 @@ export default function HomeHeader() {
                         </div>
                       </div>
                       <div className="d-flex align-items-center">
-                        <a href="javascript:void();" className="mr-3 btn btn-primary rounded">Confirm</a>
-                        <a href="javascript:void();" className="mr-3 btn btn-secondary rounded">Delete Request</a>
+                        <a href className="mr-3 btn btn-primary rounded">Confirm</a>
+                        <a href className="mr-3 btn btn-secondary rounded">Delete Request</a>
                       </div>
                     </div>
                   </div>
-                  <div className="iq-friend-request">
-                    <div className="iq-sub-card iq-sub-card-big d-flex align-items-center justify-content-between">
-                      <div className="d-flex align-items-center">
-                        <div className>
-                          <img className="avatar-40 rounded" src="images/user/02.jpg" alt="fake" />
-                        </div>
-                        <div className="media-body ml-3">
-                          <h6 className="mb-0 ">Lucy Tania</h6>
-                          <p className="mb-0">12  friends</p>
-                        </div>
-                      </div>
-                      <div className="d-flex align-items-center">
-                        <a href="javascript:void();" className="mr-3 btn btn-primary rounded">Confirm</a>
-                        <a href="javascript:void();" className="mr-3 btn btn-secondary rounded">Delete Request</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="iq-friend-request">
-                    <div className="iq-sub-card iq-sub-card-big d-flex align-items-center justify-content-between">
-                      <div className="d-flex align-items-center">
-                        <div className>
-                          <img className="avatar-40 rounded" src="images/user/03.jpg" alt="fake" />
-                        </div>
-                        <div className="media-body ml-3">
-                          <h6 className="mb-0 ">Manny Petty</h6>
-                          <p className="mb-0">3  friends</p>
-                        </div>
-                      </div>
-                      <div className="d-flex align-items-center">
-                        <a href="javascript:void();" className="mr-3 btn btn-primary rounded">Confirm</a>
-                        <a href="javascript:void();" className="mr-3 btn btn-secondary rounded">Delete Request</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="iq-friend-request">
-                    <div className="iq-sub-card iq-sub-card-big d-flex align-items-center justify-content-between">
-                      <div className="d-flex align-items-center">
-                        <div className>
-                          <img className="avatar-40 rounded" src="images/user/04.jpg" alt="fake-h"/>
-                        </div>
-                        <div className="media-body ml-3">
-                          <h6 className="mb-0 ">Marsha Mello</h6>
-                          <p className="mb-0">15  friends</p>
-                        </div>
-                      </div>
-                      <div className="d-flex align-items-center">
-                        <a href="javascript:void();" className="mr-3 btn btn-primary rounded">Confirm</a>
-                        <a href="javascript:void();" className="mr-3 btn btn-secondary rounded">Delete Request</a>
-                      </div>
-                    </div>
-                  </div>
+          
                   <div className="text-center">
                     <a href="fake" className="mr-3 btn text-primary">View More Request</a>
                   </div>
@@ -132,12 +83,12 @@ export default function HomeHeader() {
               <div className="iq-card shadow-none m-0">
                 <div className="iq-card-body p-0 ">
                   <div className="bg-primary p-3">
-                    <h5 className="mb-0 text-white">All Notifications<small className="badge  badge-light float-right pt-1">4</small></h5>
+                    <h5 className="mb-0 text-white">All Notifications<small className="badge  badge-light float-right pt-1">30</small></h5>
                   </div>
-                  <a href="fake" className="iq-sub-card">
+                  <Link to={`/${`users`}`} className="iq-sub-card">
                     <div className="media align-items-center">
                       <div className>
-                        <img className="avatar-40 rounded" src="images/user/01.jpg" alt="" />
+                        <img className="avatar-40 rounded" src="images/user/01.jpg" alt="user" />
                       </div>
                       <div className="media-body ml-3">
                         <h6 className="mb-0 ">Emma Watson Bni</h6>
@@ -145,43 +96,7 @@ export default function HomeHeader() {
                         <p className="mb-0">95 MB</p>
                       </div>
                     </div>
-                  </a>
-                  <a href="a" className="iq-sub-card">
-                    <div className="media align-items-center">
-                      <div className>
-                        <img className="avatar-40 rounded" src="images/user/02.jpg" alt="" />
-                      </div>
-                      <div className="media-body ml-3">
-                        <h6 className="mb-0 ">New customer is join</h6>
-                        <small className="float-right font-size-12">5 days ago</small>
-                        <p className="mb-0">Cyst Bni</p>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="f" className="iq-sub-card">
-                    <div className="media align-items-center">
-                      <div className>
-                        <img className="avatar-40 rounded" src="images/user/03.jpg" alt="" />
-                      </div>
-                      <div className="media-body ml-3">
-                        <h6 className="mb-0 ">Two customer is left</h6>
-                        <small className="float-right font-size-12">2 days ago</small>
-                        <p className="mb-0">Cyst Bni</p>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="a" className="iq-sub-card">
-                    <div className="media align-items-center">
-                      <div className>
-                        <img className="avatar-40 rounded" src="images/user/04.jpg" alt="" />
-                      </div>
-                      <div className="media-body ml-3">
-                        <h6 className="mb-0 ">New Mail from Fenny</h6>
-                        <small className="float-right font-size-12">3 days ago</small>
-                        <p className="mb-0">Cyst Bni</p>
-                      </div>
-                    </div>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -208,50 +123,9 @@ export default function HomeHeader() {
                       </div>
                     </div>
                   </a>
-                  <a href="fake" className="iq-sub-card">
-                    <div className="media align-items-center">
-                      <div className>
-                        <img className="avatar-40 rounded" src="images/user/02.jpg" alt="fake-h"/>
-                      </div>
-                      <div className="media-body ml-3">
-                        <h6 className="mb-0 ">Lorem Ipsum Watson</h6>
-                        <small className="float-left font-size-12">20 Apr</small>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="fake" className="iq-sub-card">
-                    <div className="media align-items-center">
-                      <div className>
-                        <img className="avatar-40 rounded" src="images/user/03.jpg" alt="fake-h"/>
-                      </div>
-                      <div className="media-body ml-3">
-                        <h6 className="mb-0 ">Why do we use it?</h6>
-                        <small className="float-left font-size-12">30 Jun</small>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="fake" className="iq-sub-card">
-                    <div className="media align-items-center">
-                      <div className>
-                        <img className="avatar-40 rounded" src="images/user/04.jpg" alt="fake-h"/>
-                      </div>
-                      <div className="media-body ml-3">
-                        <h6 className="mb-0 ">Variations Passages</h6>
-                        <small className="float-left font-size-12">12 Sep</small>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="fake" className="iq-sub-card">
-                    <div className="media align-items-center">
-                      <div className>
-                        <img className="avatar-40 rounded" src="images/user/05.jpg" alt="fake-h"/>
-                      </div>
-                      <div className="media-body ml-3">
-                        <h6 className="mb-0 ">Lorem Ipsum generators</h6>
-                        <small className="float-left font-size-12">5 Dec</small>
-                      </div>
-                    </div>
-                  </a>
+
+
+    
                 </div>
               </div>
             </div>
@@ -325,7 +199,6 @@ export default function HomeHeader() {
     </nav>
   </div>
 </div>
-
       </Fragment>
     )
 }
