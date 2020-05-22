@@ -50,7 +50,7 @@ export default class Create extends Component {
   render(){
     const {user}= this.props;
     const {body,loading,reload} = this.state;
-    if(reload) return <Redirect to="/" />
+    //if(reload) return <Redirect to="/" />
     return (
 <div className="col-sm-12">
   <div id="post-modal-data" className="iq-card iq-card-block iq-card-stretch iq-card-height">
