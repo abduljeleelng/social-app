@@ -1,10 +1,15 @@
-import React, { Fragment } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
+import profileIcon from '../img/profileIcon.png'
+//import { photoAPI } from '../api';
+import { profilePhoto } from '../../timeline/api';
 //import { Container, Row, Col, Input } from 'reactstrap'
 
-export default function HomeHeader() {
+export default function HomeHeader({user}) {
+  console.log(JSON.stringify({user,profile:"user details"}));
     return (
       <Fragment>
+        {profilePhoto}
 <div className="iq-top-navbar">
   <div className="iq-navbar-custom">
     <nav className="navbar navbar-expand-lg navbar-light p-0">
@@ -28,10 +33,10 @@ export default function HomeHeader() {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav ml-auto navbar-list">
           <li>
-            <Link to={`/${`user`}`} className="iq-waves-effect d-flex align-items-center">
-              <img src="images/user/1.jpg" className="img-fluid rounded-circle mr-3" alt="user" />
+            <Link to={`/${user._id}`} className="iq-waves-effect d-flex align-items-center">
+              <img src={`${profilePhoto}${user._id}`} onError={i=>i.target.src=`${profileIcon}`} className="img-fluid rounded-circle mr-3" alt="user" />
               <div className="caption">
-                <h6 className="mb-0 line-height">Yusuff</h6>
+                <h6 className="mb-0 line-height">{user.firstName}  {user.lastName}</h6>
               </div>
             </Link>
           </li>

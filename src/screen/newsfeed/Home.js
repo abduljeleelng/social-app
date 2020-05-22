@@ -9,6 +9,7 @@ import { Create,Header,Post, Story,Event, Birthday} from './components';
 import '../../custom/css/typography.css';
 import '../../custom/css/style.css';
 import '../../custom/css/responsive.css';
+import { isAuthenticated } from '../../auth';
 
 export default class Home extends Component {
     constructor(props){
@@ -18,16 +19,18 @@ export default class Home extends Component {
             loadStory:false,
             loadEvent:false,
             loadBirth:false,
+            user:'',
         }
     }
     componentDidMount(){
-        
+        this.setState({user:isAuthenticated().user});
+
     }
     render() {
-        const {loadPost,loadStory,loadEvent,loadBirth}=this.state;
+        const {loadPost,loadStory,loadEvent,loadBirth,user}=this.state;
         return (
             <Fragment>
-                <Header />
+                <Header user={user} />
                 <div id="content-page" class="content-page">
                     <div class="container">
                         <div class="row">
