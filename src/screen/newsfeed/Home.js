@@ -35,7 +35,7 @@ export default class Home extends Component {
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-8 row m-0 p-0">
-                                <Create />
+                                <Create user={user} />
                                 <ReactPlaceholder showLoadingAnimation  rows={7} ready={loadPost}>
                                     <Post />
                                 </ReactPlaceholder>

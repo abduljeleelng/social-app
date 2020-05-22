@@ -6,7 +6,7 @@ import { profilePhoto } from '../../timeline/api';
 //import { Container, Row, Col, Input } from 'reactstrap'
 
 export default function HomeHeader({user}) {
-  console.log(JSON.stringify({user,profile:"user details"}));
+  //console.log(JSON.stringify({user,profile:"user details"}));
     return (
       <Fragment>
         {profilePhoto}
@@ -128,9 +128,6 @@ export default function HomeHeader({user}) {
                       </div>
                     </div>
                   </a>
-
-
-    
                 </div>
               </div>
             </div>
@@ -148,7 +145,7 @@ export default function HomeHeader({user}) {
                     <h5 className="mb-0 text-white line-height">Hello Bni Cyst</h5>
                     <span className="text-white font-size-12">Available</span>
                   </div>
-                  <a href="profile.html" className="iq-sub-card iq-bg-primary-hover">
+                  <a href="profile" className="iq-sub-card iq-bg-primary-hover">
                     <div className="media align-items-center">
                       <div className="rounded iq-card-icon iq-bg-primary">
                         <i className="ri-file-user-line" />
@@ -159,7 +156,7 @@ export default function HomeHeader({user}) {
                       </div>
                     </div>
                   </a>
-                  <a href="profile-edit.html" className="iq-sub-card iq-bg-warning-hover">
+                  <a href="profile" className="iq-sub-card iq-bg-warning-hover">
                     <div className="media align-items-center">
                       <div className="rounded iq-card-icon iq-bg-warning">
                         <i className="ri-profile-line" />
@@ -170,7 +167,7 @@ export default function HomeHeader({user}) {
                       </div>
                     </div>
                   </a>
-                  <a href="account-setting.html" className="iq-sub-card iq-bg-info-hover">
+                  <a href="account" className="iq-sub-card iq-bg-info-hover">
                     <div className="media align-items-center">
                       <div className="rounded iq-card-icon iq-bg-info">
                         <i className="ri-account-box-line" />
@@ -181,7 +178,7 @@ export default function HomeHeader({user}) {
                       </div>
                     </div>
                   </a>
-                  <a href="privacy-setting.html" className="iq-sub-card iq-bg-danger-hover">
+                  <a href="privacy" className="iq-sub-card iq-bg-danger-hover">
                     <div className="media align-items-center">
                       <div className="rounded iq-card-icon iq-bg-danger">
                         <i className="ri-lock-line" />
@@ -193,7 +190,7 @@ export default function HomeHeader({user}) {
                     </div>
                   </a>
                   <div className="d-inline-block w-100 text-center p-3">
-                    <a className="bg-primary iq-sign-btn" href="sign-in.html" role="button">Sign out<i className="ri-login-box-line ml-2" /></a>
+                    <a className="bg-primary iq-sign-btn" href="sign-in" role="button">Sign out<i className="ri-login-box-line ml-2" /></a>
                   </div>
                 </div>
               </div>
