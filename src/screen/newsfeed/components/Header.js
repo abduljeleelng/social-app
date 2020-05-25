@@ -22,9 +22,9 @@ export default function HomeHeader({user}) {
         </div>
       </div>
       <div className="iq-search-bar">
-        <form action="#" className="searchbox">
+        <form action="face.com" className="searchbox">
           <input type="text" className="text search-input" placeholder="Type here to search..." />
-          <a className="search-link" href="fake"><i className="ri-search-line" /></a>
+          <i className="search-link"><i className="ri-search-line" /></i>
         </form>
       </div>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
@@ -120,7 +120,7 @@ export default function HomeHeader({user}) {
                   <a href="fake" className="iq-sub-card">
                     <div className="media align-items-center">
                       <div className>
-                        <img className="avatar-40 rounded" src="images/user/01.jpg" alt="fake-h"/>
+                        <img className="avatar-40 rounded" src="images/user/01.jpg" alt="fake"/>
                       </div>
                       <div className="media-body ml-3">
                         <h6 className="mb-0 ">Bni Emma Watson</h6>
