@@ -4,6 +4,33 @@ import { profilePhoto } from '../../timeline/api';
 import { Link } from 'react-router-dom';
 import { photoAPI } from '../api';
 
+const timeAgo = (prevDate) => {
+  const diff = Number(new Date()) - prevDate;
+  const minute = 60 * 1000;
+  const hour = minute * 60;
+  const day = hour * 24;
+  const month = day * 30;
+  const year = day * 365;
+  switch (true) {
+    case diff < minute:
+      const seconds = Math.round(diff / 1000);
+      return `${seconds} ${seconds > 1 ? 'seconds' : 'second'} ago`
+      case diff < hour:
+        return Math.round(diff / minute) + ' minutes ago';
+      case diff < day:
+        return Math.round(diff / hour) + ' hours ago';
+      case diff < month:
+        return Math.round(diff / day) + ' days ago';
+      case diff < year:
+        return Math.round(diff / month) + ' months ago';
+      case diff > year:
+        return Math.round(diff / year) + ' years ago';
+      default:
+        return "";
+    }
+  };
+   // console.log(timeAgo(new Date("Thu Oct 25 2018").getTime()));
+
 export default function Post({posts}) {
   console.log(JSON.stringify(posts))
     return (
@@ -22,7 +49,7 @@ export default function Post({posts}) {
                     <div className="media-support-info mt-2">
                       <h5 className="mb-0 d-inline-block"><Link to={`/${post.postedBy._id}`} className> {post.postedBy.firstName} {post.postedBy.lastName}</Link></h5>
                       <p className="mb-0 d-inline-block"></p>
-                      <p className="mb-0 text-primary">{new Date(post.created).toDateString()}</p>
+                      <p className="mb-0 text-primary">{timeAgo(new Date(post.created).getTime())}</p>
                     </div>
                     {/*
                     <div className="iq-card-post-toolbar">
