@@ -86,8 +86,9 @@ export default function Post({posts}) {
                         <div className="like-data">
                           <div className="dropdown">
                             <span className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
-                              <img src="images/icon/01.png" className="img-fluid" alt="user" />
+                              <img src="images/icon/01.png" className="img-fluid" alt="" />
                             </span>
+                            {/*
                             <div className="dropdown-menu">
                               <a className="ml-2 mr-2" href="fake" data-toggle="tooltip" data-placement="top" title data-original-title="Like"><img src="images/icon/01.png" className="img-fluid" alt="user" /></a>
                               <a className="mr-2" href="fake" data-toggle="tooltip" data-placement="top" title data-original-title="Love"><img src="images/icon/02.png" className="img-fluid" alt="user" /></a>
@@ -97,13 +98,15 @@ export default function Post({posts}) {
                               <a className="mr-2" href="fake" data-toggle="tooltip" data-placement="top" title data-original-title="Sade"><img src="images/icon/06.png" className="img-fluid" alt="user" /></a>
                               <a className="mr-2" href="fake" data-toggle="tooltip" data-placement="top" title data-original-title="Lovely"><img src="images/icon/07.png" className="img-fluid" alt="user" /></a>
                             </div>
+                              */}
                           </div>
                         </div>
                         <div className="total-like-block ml-2 mr-3">
                           <div className="dropdown">
                             <span className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
-                              140 Likes
+                              {post.likes.length} Likes
                             </span>
+                            {/*
                             <div className="dropdown-menu">
                               <a className="dropdown-item" href="fake">Max Emum</a>
                               <a className="dropdown-item" href="fake">Bill Yerds</a>
@@ -113,14 +116,16 @@ export default function Post({posts}) {
                               <a className="dropdown-item" href="fake">Sal Vidge</a>
                               <a className="dropdown-item" href="fake">Other</a>
                             </div>
+                            */}
                           </div>
                         </div>
                       </div>
                       <div className="total-comment-block">
                         <div className="dropdown">
                           <span className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
-                            20 Comment
+                          {post.comments.length} Comment
                           </span>
+                          {/*
                           <div className="dropdown-menu">
                             <a className="dropdown-item" href="fake">Max Emum</a>
                             <a className="dropdown-item" href="fake">Bill Yerds</a>
@@ -130,13 +135,17 @@ export default function Post({posts}) {
                             <a className="dropdown-item" href="fake">Sal Vidge</a>
                             <a className="dropdown-item" href="fake">Other</a>
                           </div>
+                          */}
                         </div>
                       </div>
                     </div>
+                    {/*
                     <div className="share-block d-flex align-items-center feather-icon mr-3">
                       <a href="fake"><i className="ri-share-line" />
-                        <span className="ml-1">99 Share</span></a>
+                        <span className="ml-1">99 Share</span>
+                      </a>
                     </div>
+                    */}
                   </div>
                   <hr />
                   <ul className="post-comments p-0 m-0">
@@ -147,23 +156,6 @@ export default function Post({posts}) {
                         </div>
                         <div className="comment-data-block ml-3">
                           <h6>Monty Carlo</h6>
-                          <p className="mb-0">Lorem ipsum dolor sit amet</p>
-                          <div className="d-flex flex-wrap align-items-center comment-activity">
-                            <a href="fake">like</a>
-                            <a href="fake">reply</a>
-                            <a href="fake">translate</a>
-                            <span> 5 min </span>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="d-flex flex-wrap">
-                        <div className="user-img">
-                          <img src="images/user/03.jpg" alt="userimg" className="avatar-35 rounded-circle img-fluid" />
-                        </div>
-                        <div className="comment-data-block ml-3">
-                          <h6>Paul Molive</h6>
                           <p className="mb-0">Lorem ipsum dolor sit amet</p>
                           <div className="d-flex flex-wrap align-items-center comment-activity">
                             <a href="fake">like</a>
