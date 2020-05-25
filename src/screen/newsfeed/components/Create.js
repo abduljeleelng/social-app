@@ -3,7 +3,7 @@ import profileIcon from '../img/profileIcon.png'
 import { profilePhoto } from '../../timeline/api';
 import { isAuthenticated } from '../../../auth';
 import { newPost } from '../api';
-import { Redirect } from 'react-router-dom';
+//import { Redirect } from 'react-router-dom';
 
 export default class Create extends Component {
   constructor(){
@@ -49,7 +49,7 @@ export default class Create extends Component {
   }
   render(){
     const {user}= this.props;
-    const {body,loading,reload} = this.state;
+    const {body,loading,} = this.state;
     //if(reload) return <Redirect to="/" />
     return (
 <div className="col-sm-12">
