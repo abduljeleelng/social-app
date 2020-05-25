@@ -29,7 +29,7 @@ export const newPost = (userId,token,post) =>{
 .catch(error=>console.log(error))
 }
 
-export const photoAPI = `${API}/posts/photo/`;
+export const photoAPI = `${API}/posts/photo`;
 
 export const singlePost = (postId)=>{
     return fetch(`${API}/post/${postId}`,{method:"GET"})
