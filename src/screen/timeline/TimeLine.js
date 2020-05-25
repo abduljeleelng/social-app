@@ -1,603 +1,37 @@
 import React, { Component, Fragment } from 'react';
 import cover from './img/cover.jpg';
+import profileIcon from './img/profileIcon.png';
+
+import { Create,Header,} from '../newsfeed/components';
+import { isAuthenticated } from '../../auth';
 
 export default class TimeLine extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      user:'',
+      posts:[],
+    }
+  }
+
+  componentDidMount(){
+    this.setState({user:isAuthenticated().user});
+  }
     render() {
+      const {user,}= this.state;
+      console.log(JSON.stringify(user))
         return (
             <Fragment>
 <div>
   <div className="wrapper">
     {/* Sidebar  */}
-    <div className="iq-sidebar">
-      <div id="sidebar-scrollbar">
-        <nav className="iq-sidebar-menu">
-          <ul id="iq-sidebar-toggle" className="iq-menu">
-            <li>
-              <a href="index.html" className="iq-waves-effect"><i className="las la-newspaper" /><span>Newsfeed</span></a>
-            </li>
-            <li className="active">
-              <a href="profile.html" className="iq-waves-effect"><i className="las la-user" /><span>Profile</span></a>
-            </li>
-            <li>
-              <a href="friend-list.html" className="iq-waves-effect"><i className="las la-user-friends" /><span>Friend Lists</span></a>
-            </li>
-            <li>
-              <a href="group.html" className="iq-waves-effect"><i className="las la-users" /><span>Group</span></a>
-            </li>
-            <li>
-              <a href="profile-images.html" className="iq-waves-effect"><i className="las la-image" /><span>Profile Image</span></a>
-            </li>
-            <li>
-              <a href="profile-video.html" className="iq-waves-effect"><i className="las la-video" /><span>Profile Video</span></a>
-            </li>
-            <li>
-              <a href="profile-event.html" className="iq-waves-effect"><i className="las la-film" /><span>Profile Events</span></a>
-            </li>
-            <li>
-              <a href="notification.html" className="iq-waves-effect"><i className="las la-bell" /><span>Notification</span></a>
-            </li>
-            <li>
-              <a href="file.html" className="iq-waves-effect"><i className="las la-file" /><span>Files</span></a>
-            </li>
-            <li>
-              <a href="friend-request.html" className="iq-waves-effect"><i className="las la-anchor" /><span>Friend Request</span></a>
-            </li>
-            <li>
-              <a href="chat.html" className="iq-waves-effect"><i className="lab la-rocketchat" /><span>Chat</span></a>
-            </li>
-            <li>
-              <a href="todo.html" className="iq-waves-effect"><i className="las la-check-circle" /><span>Todo</span></a>
-            </li>
-            <li>
-              <a href="calendar.html" className="iq-waves-effect"><i className="las la-calendar" /><span>Calendar</span></a>
-            </li>
-            <li>
-              <a href="birthday.html" className="iq-waves-effect"><i className="las la-birthday-cake" /><span>Birthday</span></a>
-            </li>
-            <li>
-              <a href="weather.html" className="iq-waves-effect"><i className="ri-snowy-line" /><span>Weather</span></a>
-            </li>
-            <li>
-              <a href="music.html" className="iq-waves-effect"><i className="ri-play-circle-line" /><span>Music</span></a>
-            </li>
-            <li>
-              <a href="#mailbox" className="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i className="ri-mail-line" /><span>Email</span><i className="ri-arrow-right-s-line iq-arrow-right" /></a>
-              <ul id="mailbox" className="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                <li><a href="app/index.html"><i className="ri-inbox-line" />Inbox</a></li>
-                <li><a href="app/email-compose.html"><i className="ri-edit-line" />Email Compose</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#ui-elements" className="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i className="ri-focus-2-line" /><span>Ui-Elements</span><i className="ri-arrow-right-s-line iq-arrow-right" /></a>
-              <ul id="ui-elements" className="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                <li>
-                  <a href="#ui-kit" className="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i className="ri-pencil-ruler-line" /><span>UI Kit</span><i className="ri-arrow-right-s-line iq-arrow-right" /></a>
-                  <ul id="ui-kit" className="iq-submenu collapse" data-parent="#ui-elements">
-                    <li><a href="ui-colors.html"><i className="ri-font-color" />colors</a></li>
-                    <li><a href="ui-typography.html"><i className="ri-text" />Typography</a></li>
-                    <li><a href="ui-alerts.html"><i className="ri-alert-line" />Alerts</a></li>
-                    <li><a href="ui-badges.html"><i className="ri-building-3-line" />Badges</a></li>
-                    <li><a href="ui-breadcrumb.html"><i className="ri-menu-2-line" />Breadcrumb</a></li>
-                    <li><a href="ui-buttons.html"><i className="ri-checkbox-blank-line" />Buttons</a></li>
-                    <li><a href="ui-cards.html"><i className="ri-bank-card-line" />Cards</a></li>
-                    <li><a href="ui-carousel.html"><i className="ri-slideshow-line" />Carousel</a></li>
-                    <li><a href="ui-embed-video.html"><i className="ri-slideshow-2-line" />Video</a></li>
-                    <li><a href="ui-grid.html"><i className="ri-grid-line" />Grid</a></li>
-                    <li><a href="ui-images.html"><i className="ri-image-line" />Images</a></li>
-                    <li><a href="ui-list-group.html"><i className="ri-file-list-3-line" />list Group</a></li>
-                    <li><a href="ui-media-object.html"><i className="ri-camera-line" />Media</a></li>
-                    <li><a href="ui-modal.html"><i className="ri-stop-mini-line" />Modal</a></li>
-                    <li><a href="ui-notifications.html"><i className="ri-notification-line" />Notifications</a></li>
-                    <li><a href="ui-pagination.html"><i className="ri-pages-line" />Pagination</a></li>
-                    <li><a href="ui-popovers.html"><i className="ri-folder-shield-2-line" />Popovers</a></li>
-                    <li><a href="ui-progressbars.html"><i className="ri-battery-low-line" />Progressbars</a></li>
-                    <li><a href="ui-tabs.html"><i className="ri-database-line" />Tabs</a></li>
-                    <li><a href="ui-tooltips.html"><i className="ri-record-mail-line" />Tooltips</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#forms" className="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i className="ri-profile-line" /><span>Forms</span><i className="ri-arrow-right-s-line iq-arrow-right" /></a>
-                  <ul id="forms" className="iq-submenu collapse" data-parent="#ui-elements">
-                    <li><a href="form-layout.html"><i className="ri-tablet-line" />Form Elements</a></li>
-                    <li><a href="form-validation.html"><i className="ri-device-line" />Form Validation</a></li>
-                    <li><a href="form-switch.html"><i className="ri-toggle-line" />Form Switch</a></li>
-                    <li><a href="form-chechbox.html"><i className="ri-checkbox-line" />Form Checkbox</a></li>
-                    <li><a href="form-radio.html"><i className="ri-radio-button-line" />Form Radio</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#wizard-form" className="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i className="ri-archive-drawer-line" /><span>Forms Wizard</span><i className="ri-arrow-right-s-line iq-arrow-right" /></a>
-                  <ul id="wizard-form" className="iq-submenu collapse" data-parent="#ui-elements">
-                    <li><a href="form-wizard.html"><i className="ri-clockwise-line" />Simple Wizard</a></li>
-                    <li><a href="form-wizard-validate.html"><i className="ri-clockwise-2-line" />Validate Wizard</a></li>
-                    <li><a href="form-wizard-vertical.html"><i className="ri-anticlockwise-line" />Vertical Wizard</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#tables" className="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i className="ri-table-line" /><span>Table</span><i className="ri-arrow-right-s-line iq-arrow-right" /></a>
-                  <ul id="tables" className="iq-submenu collapse" data-parent="#ui-elements">
-                    <li><a href="tables-basic.html"><i className="ri-table-line" />Basic Tables</a></li>
-                    <li><a href="data-table.html"><i className="ri-database-line" />Data Table</a></li>
-                    <li><a href="table-editable.html"><i className="ri-refund-line" />Editable Table</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#icons" className="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i className="ri-list-check" /><span>Icons</span><i className="ri-arrow-right-s-line iq-arrow-right" /></a>
-                  <ul id="icons" className="iq-submenu collapse" data-parent="#ui-elements">
-                    <li><a href="icon-dripicons.html"><i className="ri-stack-line" />Dripicons</a></li>
-                    <li><a href="icon-fontawesome-5.html"><i className="ri-facebook-fill" />Font Awesome 5</a></li>
-                    <li><a href="icon-lineawesome.html"><i className="ri-keynote-line" />line Awesome</a></li>
-                    <li><a href="icon-remixicon.html"><i className="ri-remixicon-line" />Remixicon</a></li>
-                    <li><a href="icon-unicons.html"><i className="ri-underline" />unicons</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="#pages" className="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i className="ri-pages-line" /><span>Pages</span><i className="ri-arrow-right-s-line iq-arrow-right" /></a>
-              <ul id="pages" className="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                <li>
-                  <a href="#authentication" className="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i className="ri-pages-line" /><span>Authentication</span><i className="ri-arrow-right-s-line iq-arrow-right" /></a>
-                  <ul id="authentication" className="iq-submenu collapse" data-parent="#pages">
-                    <li><a href="sign-in.html"><i className="ri-login-box-line" />Login</a></li>
-                    <li><a href="sign-up.html"><i className="ri-login-circle-line" />Register</a></li>
-                    <li><a href="pages-recoverpw.html"><i className="ri-record-mail-line" />Recover Password</a></li>
-                    <li><a href="pages-confirm-mail.html"><i className="ri-file-code-line" />Confirm Mail</a></li>
-                    <li><a href="pages-lock-screen.html"><i className="ri-lock-line" />Lock Screen</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#extra-pages" className="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i className="ri-pantone-line" /><span>Extra Pages</span><i className="ri-arrow-right-s-line iq-arrow-right" /></a>
-                  <ul id="extra-pages" className="iq-submenu collapse" data-parent="#pages">
-                    <li><a href="pages-timeline.html"><i className="ri-map-pin-time-line" />Timeline</a></li>
-                    <li><a href="pages-invoice.html"><i className="ri-question-answer-line" />Invoice</a></li>
-                    <li><a href="blank-page.html"><i className="ri-invision-line" />Blank Page</a></li>
-                    <li><a href="pages-error.html"><i className="ri-error-warning-line" />Error 404</a></li>
-                    <li><a href="pages-error-500.html"><i className="ri-error-warning-line" />Error 500</a></li>
-                    <li><a href="pages-pricing.html"><i className="ri-price-tag-line" />Pricing</a></li>
-                    <li><a href="pages-pricing-one.html"><i className="ri-price-tag-2-line" />Pricing 1</a></li>
-                    <li><a href="pages-maintenance.html"><i className="ri-archive-line" />Maintenance</a></li>
-                    <li><a href="pages-comingsoon.html"><i className="ri-mastercard-line" />Coming Soon</a></li>
-                    <li><a href="pages-faq.html"><i className="ri-compasses-line" />Faq</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-        <div className="p-3" />
-      </div>
-    </div>
+ 
     {/* TOP Nav Bar */}
-    <div className="iq-top-navbar">
-      <div className="iq-navbar-custom">
-        <nav className="navbar navbar-expand-lg navbar-light p-0">
-          <div className="iq-navbar-logo d-flex justify-content-between">
-            <a href="index.html">
-              <img src="images/logo.png" className="img-fluid" alt />
-              <span>SocialV</span>
-            </a>
-            <div className="iq-menu-bt align-self-center">
-              <div className="wrapper-menu">
-                <div className="main-circle"><i className="ri-menu-line" /></div>
-              </div>
-            </div>
-          </div>
-          <div className="iq-search-bar">
-            <form action="#" className="searchbox">
-              <input type="text" className="text search-input" placeholder="Type here to search..." />
-              <a className="search-link" href="#"><i className="ri-search-line" /></a>
-            </form>
-          </div>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
-            <i className="ri-menu-3-line" />
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav ml-auto navbar-list">
-              <li>
-                <a href="profile.html" className="iq-waves-effect d-flex align-items-center">
-                  <img src="images/user/1.jpg" className="img-fluid rounded-circle mr-3" alt="user" />
-                  <div className="caption">
-                    <h6 className="mb-0 line-height">Bni Cyst</h6>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="index.html" className="iq-waves-effect d-flex align-items-center">
-                  <i className="ri-home-line" />
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="search-toggle iq-waves-effect" href="#"><i className="ri-group-line" /></a>
-                <div className="iq-sub-dropdown iq-sub-dropdown-large">
-                  <div className="iq-card shadow-none m-0">
-                    <div className="iq-card-body p-0 ">
-                      <div className="bg-primary p-3">
-                        <h5 className="mb-0 text-white">Friend Request<small className="badge  badge-light float-right pt-1">4</small></h5>
-                      </div>
-                      <div className="iq-friend-request">
-                        <div className="iq-sub-card iq-sub-card-big d-flex align-items-center justify-content-between">
-                          <div className="d-flex align-items-center">
-                            <div className>
-                              <img className="avatar-40 rounded" src="images/user/01.jpg" alt />
-                            </div>
-                            <div className="media-body ml-3">
-                              <h6 className="mb-0 ">Jaques Amole</h6>
-                              <p className="mb-0">40  friends</p>
-                            </div>
-                          </div>
-                          <div className="d-flex align-items-center">
-                            <a href="javascript:void();" className="mr-3 btn btn-primary rounded">Confirm</a>
-                            <a href="javascript:void();" className="mr-3 btn btn-secondary rounded">Delete Request</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="iq-friend-request">
-                        <div className="iq-sub-card iq-sub-card-big d-flex align-items-center justify-content-between">
-                          <div className="d-flex align-items-center">
-                            <div className>
-                              <img className="avatar-40 rounded" src="images/user/02.jpg" alt />
-                            </div>
-                            <div className="media-body ml-3">
-                              <h6 className="mb-0 ">Lucy Tania</h6>
-                              <p className="mb-0">12  friends</p>
-                            </div>
-                          </div>
-                          <div className="d-flex align-items-center">
-                            <a href="javascript:void();" className="mr-3 btn btn-primary rounded">Confirm</a>
-                            <a href="javascript:void();" className="mr-3 btn btn-secondary rounded">Delete Request</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="iq-friend-request">
-                        <div className="iq-sub-card iq-sub-card-big d-flex align-items-center justify-content-between">
-                          <div className="d-flex align-items-center">
-                            <div className>
-                              <img className="avatar-40 rounded" src="images/user/03.jpg" alt />
-                            </div>
-                            <div className="media-body ml-3">
-                              <h6 className="mb-0 ">Manny Petty</h6>
-                              <p className="mb-0">3  friends</p>
-                            </div>
-                          </div>
-                          <div className="d-flex align-items-center">
-                            <a href="javascript:void();" className="mr-3 btn btn-primary rounded">Confirm</a>
-                            <a href="javascript:void();" className="mr-3 btn btn-secondary rounded">Delete Request</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="iq-friend-request">
-                        <div className="iq-sub-card iq-sub-card-big d-flex align-items-center justify-content-between">
-                          <div className="d-flex align-items-center">
-                            <div className>
-                              <img className="avatar-40 rounded" src="images/user/04.jpg" alt />
-                            </div>
-                            <div className="media-body ml-3">
-                              <h6 className="mb-0 ">Marsha Mello</h6>
-                              <p className="mb-0">15  friends</p>
-                            </div>
-                          </div>
-                          <div className="d-flex align-items-center">
-                            <a href="javascript:void();" className="mr-3 btn btn-primary rounded">Confirm</a>
-                            <a href="javascript:void();" className="mr-3 btn btn-secondary rounded">Delete Request</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="text-center">
-                        <a href="#" className="mr-3 btn text-primary">View More Request</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li className="nav-item">
-                <a href="#" className="search-toggle iq-waves-effect">
-                  <div id="lottie-beil" />
-                  <span className="bg-danger dots" />
-                </a>
-                <div className="iq-sub-dropdown">
-                  <div className="iq-card shadow-none m-0">
-                    <div className="iq-card-body p-0 ">
-                      <div className="bg-primary p-3">
-                        <h5 className="mb-0 text-white">All Notifications<small className="badge  badge-light float-right pt-1">4</small></h5>
-                      </div>
-                      <a href="#" className="iq-sub-card">
-                        <div className="media align-items-center">
-                          <div className>
-                            <img className="avatar-40 rounded" src="images/user/01.jpg" alt />
-                          </div>
-                          <div className="media-body ml-3">
-                            <h6 className="mb-0 ">Emma Watson Bni</h6>
-                            <small className="float-right font-size-12">Just Now</small>
-                            <p className="mb-0">95 MB</p>
-                          </div>
-                        </div>
-                      </a>
-                      <a href="#" className="iq-sub-card">
-                        <div className="media align-items-center">
-                          <div className>
-                            <img className="avatar-40 rounded" src="images/user/02.jpg" alt />
-                          </div>
-                          <div className="media-body ml-3">
-                            <h6 className="mb-0 ">New customer is join</h6>
-                            <small className="float-right font-size-12">5 days ago</small>
-                            <p className="mb-0">Cyst Bni</p>
-                          </div>
-                        </div>
-                      </a>
-                      <a href="#" className="iq-sub-card">
-                        <div className="media align-items-center">
-                          <div className>
-                            <img className="avatar-40 rounded" src="images/user/03.jpg" alt />
-                          </div>
-                          <div className="media-body ml-3">
-                            <h6 className="mb-0 ">Two customer is left</h6>
-                            <small className="float-right font-size-12">2 days ago</small>
-                            <p className="mb-0">Cyst Bni</p>
-                          </div>
-                        </div>
-                      </a>
-                      <a href="#" className="iq-sub-card">
-                        <div className="media align-items-center">
-                          <div className>
-                            <img className="avatar-40 rounded" src="images/user/04.jpg" alt />
-                          </div>
-                          <div className="media-body ml-3">
-                            <h6 className="mb-0 ">New Mail from Fenny</h6>
-                            <small className="float-right font-size-12">3 days ago</small>
-                            <p className="mb-0">Cyst Bni</p>
-                          </div>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li className="nav-item dropdown">
-                <a href="#" className="search-toggle iq-waves-effect">
-                  <div id="lottie-mail" />
-                  <span className="bg-primary count-mail" />
-                </a>
-                <div className="iq-sub-dropdown">
-                  <div className="iq-card shadow-none m-0">
-                    <div className="iq-card-body p-0 ">
-                      <div className="bg-primary p-3">
-                        <h5 className="mb-0 text-white">All Messages<small className="badge  badge-light float-right pt-1">5</small></h5>
-                      </div>
-                      <a href="#" className="iq-sub-card">
-                        <div className="media align-items-center">
-                          <div className>
-                            <img className="avatar-40 rounded" src="images/user/01.jpg" alt />
-                          </div>
-                          <div className="media-body ml-3">
-                            <h6 className="mb-0 ">Bni Emma Watson</h6>
-                            <small className="float-left font-size-12">13 Jun</small>
-                          </div>
-                        </div>
-                      </a>
-                      <a href="#" className="iq-sub-card">
-                        <div className="media align-items-center">
-                          <div className>
-                            <img className="avatar-40 rounded" src="images/user/02.jpg" alt />
-                          </div>
-                          <div className="media-body ml-3">
-                            <h6 className="mb-0 ">Lorem Ipsum Watson</h6>
-                            <small className="float-left font-size-12">20 Apr</small>
-                          </div>
-                        </div>
-                      </a>
-                      <a href="#" className="iq-sub-card">
-                        <div className="media align-items-center">
-                          <div className>
-                            <img className="avatar-40 rounded" src="images/user/03.jpg" alt />
-                          </div>
-                          <div className="media-body ml-3">
-                            <h6 className="mb-0 ">Why do we use it?</h6>
-                            <small className="float-left font-size-12">30 Jun</small>
-                          </div>
-                        </div>
-                      </a>
-                      <a href="#" className="iq-sub-card">
-                        <div className="media align-items-center">
-                          <div className>
-                            <img className="avatar-40 rounded" src="images/user/04.jpg" alt />
-                          </div>
-                          <div className="media-body ml-3">
-                            <h6 className="mb-0 ">Variations Passages</h6>
-                            <small className="float-left font-size-12">12 Sep</small>
-                          </div>
-                        </div>
-                      </a>
-                      <a href="#" className="iq-sub-card">
-                        <div className="media align-items-center">
-                          <div className>
-                            <img className="avatar-40 rounded" src="images/user/05.jpg" alt />
-                          </div>
-                          <div className="media-body ml-3">
-                            <h6 className="mb-0 ">Lorem Ipsum generators</h6>
-                            <small className="float-left font-size-12">5 Dec</small>
-                          </div>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-            <ul className="navbar-list">
-              <li>
-                <a href="#" className="search-toggle iq-waves-effect d-flex align-items-center">
-                  <i className="ri-arrow-down-s-fill" />
-                </a>
-                <div className="iq-sub-dropdown iq-user-dropdown">
-                  <div className="iq-card shadow-none m-0">
-                    <div className="iq-card-body p-0 ">
-                      <div className="bg-primary p-3 line-height">
-                        <h5 className="mb-0 text-white line-height">Hello Bni Cyst</h5>
-                        <span className="text-white font-size-12">Available</span>
-                      </div>
-                      <a href="profile.html" className="iq-sub-card iq-bg-primary-hover">
-                        <div className="media align-items-center">
-                          <div className="rounded iq-card-icon iq-bg-primary">
-                            <i className="ri-file-user-line" />
-                          </div>
-                          <div className="media-body ml-3">
-                            <h6 className="mb-0 ">My Profile</h6>
-                            <p className="mb-0 font-size-12">View personal profile details.</p>
-                          </div>
-                        </div>
-                      </a>
-                      <a href="profile-edit.html" className="iq-sub-card iq-bg-warning-hover">
-                        <div className="media align-items-center">
-                          <div className="rounded iq-card-icon iq-bg-warning">
-                            <i className="ri-profile-line" />
-                          </div>
-                          <div className="media-body ml-3">
-                            <h6 className="mb-0 ">Edit Profile</h6>
-                            <p className="mb-0 font-size-12">Modify your personal details.</p>
-                          </div>
-                        </div>
-                      </a>
-                      <a href="account-setting.html" className="iq-sub-card iq-bg-info-hover">
-                        <div className="media align-items-center">
-                          <div className="rounded iq-card-icon iq-bg-info">
-                            <i className="ri-account-box-line" />
-                          </div>
-                          <div className="media-body ml-3">
-                            <h6 className="mb-0 ">Account settings</h6>
-                            <p className="mb-0 font-size-12">Manage your account parameters.</p>
-                          </div>
-                        </div>
-                      </a>
-                      <a href="privacy-setting.html" className="iq-sub-card iq-bg-danger-hover">
-                        <div className="media align-items-center">
-                          <div className="rounded iq-card-icon iq-bg-danger">
-                            <i className="ri-lock-line" />
-                          </div>
-                          <div className="media-body ml-3">
-                            <h6 className="mb-0 ">Privacy Settings</h6>
-                            <p className="mb-0 font-size-12">Control your privacy parameters.</p>
-                          </div>
-                        </div>
-                      </a>
-                      <div className="d-inline-block w-100 text-center p-3">
-                        <a className="bg-primary iq-sign-btn" href="sign-in.html" role="button">Sign out<i className="ri-login-box-line ml-2" /></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </div>
+    <Header user={user} />
+    
     {/* TOP Nav Bar END */}
     {/* Right Sidebar Panel Start*/}
-    <div className="right-sidebar-mini right-sidebar">
-      <div className="right-sidebar-panel p-0">
-        <div className="iq-card shadow-none">
-          <div className="iq-card-body p-0">
-            <div className="media-height p-3">
-              <div className="media align-items-center mb-4">
-                <div className="iq-profile-avatar status-online">
-                  <img className="rounded-circle avatar-50" src="images/user/01.jpg" alt />
-                </div>
-                <div className="media-body ml-3">
-                  <h6 className="mb-0"><a href="#">Anna Sthesia</a></h6>
-                  <p className="mb-0">Admin</p>
-                </div>
-              </div>
-              <div className="media align-items-center mb-4">
-                <div className="iq-profile-avatar status-online">
-                  <img className="rounded-circle avatar-50" src="images/user/02.jpg" alt />
-                </div>
-                <div className="media-body ml-3">
-                  <h6 className="mb-0"><a href="#">Paul Molive</a></h6>
-                  <p className="mb-0">Admin</p>
-                </div>
-              </div>
-              <div className="media align-items-center mb-4">
-                <div className="iq-profile-avatar status-online">
-                  <img className="rounded-circle avatar-50" src="images/user/03.jpg" alt />
-                </div>
-                <div className="media-body ml-3">
-                  <h6 className="mb-0"><a href="#">Anna Mull</a></h6>
-                  <p className="mb-0">Admin</p>
-                </div>
-              </div>
-              <div className="media align-items-center mb-4">
-                <div className="iq-profile-avatar status-online">
-                  <img className="rounded-circle avatar-50" src="images/user/04.jpg" alt />
-                </div>
-                <div className="media-body ml-3">
-                  <h6 className="mb-0"><a href="#">Paige Turner</a></h6>
-                  <p className="mb-0">Admin</p>
-                </div>
-              </div>
-              <div className="media align-items-center mb-4">
-                <div className="iq-profile-avatar status-online">
-                  <img className="rounded-circle avatar-50" src="images/user/01.jpg" alt />
-                </div>
-                <div className="media-body ml-3">
-                  <h6 className="mb-0"><a href="#">Bob Frapples</a></h6>
-                  <p className="mb-0">Admin</p>
-                </div>
-              </div>
-              <div className="media align-items-center mb-4">
-                <div className="iq-profile-avatar status-online">
-                  <img className="rounded-circle avatar-50" src="images/user/02.jpg" alt />
-                </div>
-                <div className="media-body ml-3">
-                  <h6 className="mb-0"><a href="#">Barb Ackue</a></h6>
-                  <p className="mb-0">Admin</p>
-                </div>
-              </div>
-              <div className="media align-items-center mb-4">
-                <div className="iq-profile-avatar status-online">
-                  <img className="rounded-circle avatar-50" src="images/user/03.jpg" alt />
-                </div>
-                <div className="media-body ml-3">
-                  <h6 className="mb-0"><a href="#">Greta Life</a></h6>
-                  <p className="mb-0">Admin</p>
-                </div>
-              </div>
-              <div className="media align-items-center mb-4">
-                <div className="iq-profile-avatar status-away">
-                  <img className="rounded-circle avatar-50" src="images/user/04.jpg" alt />
-                </div>
-                <div className="media-body ml-3">
-                  <h6 className="mb-0"><a href="#">Ira Membrit</a></h6>
-                  <p className="mb-0">Admin</p>
-                </div>
-              </div>
-              <div className="media align-items-center mb-4">
-                <div className="iq-profile-avatar status-away">
-                  <img className="rounded-circle avatar-50" src="images/user/01.jpg" alt />
-                </div>
-                <div className="media-body ml-3">
-                  <h6 className="mb-0"><a href="#">Pete Sariya</a></h6>
-                  <p className="mb-0">Admin</p>
-                </div>
-              </div>
-              <div className="media align-items-center">
-                <div className="iq-profile-avatar">
-                  <img className="rounded-circle avatar-50" src="images/user/02.jpg" alt />
-                </div>
-                <div className="media-body ml-3">
-                  <h6 className="mb-0"><a href="#">Monty Carlo</a></h6>
-                  <p className="mb-0">Admin</p>
-                </div>
-              </div>
-            </div>
-            <div className="right-sidebar-toggle bg-primary mt-3">
-              <i className="ri-arrow-left-line side-left-icon" />
-              <i className="ri-arrow-right-line side-right-icon"><span className="ml-3 d-inline-block">Close Menu</span></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  
     {/* Right Sidebar Panel End*/}
     {/* Page Content  */}
     <div id="content-page" className="content-page">
@@ -616,15 +50,16 @@ export default class TimeLine extends Component {
                   </div>
                   <div className="user-detail text-center mb-3">
                     <div className="profile-img">
-                      <img src="images/user/11.png" alt="profile-img" className="avatar-130 img-fluid" />
+                      <img src={profileIcon} alt="profile-img" className="avatar-130 img-fluid" />
                     </div>
                     <div className="profile-detail">
-                      <h3 className>Bni Cyst</h3>
+                      <h3 className>{user.firstName} {user.lastName}</h3>
                     </div>
                   </div>
                   <div className="profile-info p-4 d-flex align-items-center justify-content-between position-relative">
                     <div className="social-links">
                       <ul className="social-data-block d-flex align-items-center justify-content-between list-inline p-0 m-0">
+                      {/*
                         <li className="text-center pr-3">
                           <a href="#"><img src="images/icon/08.png" className="img-fluid rounded" alt="facebook" /></a>
                         </li>
@@ -643,6 +78,7 @@ export default class TimeLine extends Component {
                         <li className="text-center pr-3">
                           <a href="#"><img src="images/icon/13.png" className="img-fluid rounded" alt="linkedin" /></a>
                         </li>
+                        */}
                       </ul>
                     </div>
                     <div className="social-info">
@@ -811,6 +247,7 @@ export default class TimeLine extends Component {
                       </div>
                     </div>
                     <div className="col-lg-8">
+                      <Create />
                       <div id="post-modal-data" className="iq-card">
                         <div className="iq-card-header d-flex justify-content-between">
                           <div className="iq-header-title">
