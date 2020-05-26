@@ -34,7 +34,6 @@ export default class TimeLine extends Component {
   }
     render() {
       const {user,posts,loadPosts}= this.state;
-      //console.log(JSON.stringify(posts))
         return (
             <Fragment>
 <div>
@@ -59,8 +58,8 @@ export default class TimeLine extends Component {
                   <div className="cover-container">
                     <img src={cover} alt="profile-bg" className="rounded img-fluid" />
                     <ul className="header-nav d-flex flex-wrap justify-end p-0 m-0">
-                      <li><a href="javascript:void();"><i className="ri-pencil-line" /></a></li>
-                      <li><a href="javascript:void();"><i className="ri-settings-4-line" /></a></li>
+                      <li><a href><i className="ri-pencil-line" /></a></li>
+                      <li><a href><i className="ri-settings-4-line" /></a></li>
                     </ul>
                   </div>
                   <div className="user-detail text-center mb-3">
@@ -143,6 +142,7 @@ export default class TimeLine extends Component {
                 <div className="iq-card-body p-0">
                   <div className="row">
                     <div className="col-lg-4">
+                      {/*
                       <div className="iq-card">
                         <div className="iq-card-body">
                           <a href="#"><span className="badge badge-pill badge-primary font-weight-normal ml-auto mr-1"><i className="ri-star-line" /></span> 27 Items for yoou</a>
@@ -260,6 +260,7 @@ export default class TimeLine extends Component {
                           </ul>
                         </div>
                       </div>
+                      */}
                     </div>
                     <div className="col-lg-8">
                       <Create user={user} />
@@ -270,6 +271,7 @@ export default class TimeLine extends Component {
                   </div>
                 </div>
               </div>
+              {/*
               <div className="tab-pane fade" id="about" role="tabpanel">
                 <div className="iq-card">
                   <div className="iq-card-body">
@@ -3157,6 +3159,8 @@ export default class TimeLine extends Component {
                   </div>
                 </div>
               </div>
+            
+            */}
             </div>
           </div>
         </div>
