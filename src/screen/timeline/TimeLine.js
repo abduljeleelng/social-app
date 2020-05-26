@@ -8,6 +8,7 @@ import profileIcon from './img/profileIcon.png';
 import { Create,Header,Post} from '../newsfeed/components';
 import { isAuthenticated } from '../../auth';
 import { postBy } from '../newsfeed/api';
+import { profilePhoto } from './api';
 
 
 export default class TimeLine extends Component {
@@ -17,12 +18,13 @@ export default class TimeLine extends Component {
       user:'',
       loadPosts:false,
       posts:[],
+      userId:'',
     }
   }
 
   componentDidMount(){
     const userId  = this.props.match.params.userId
-    this.setState({user:isAuthenticated().user});
+    this.setState({userId,user:isAuthenticated().user});
     postBy(userId).then(data=>{
       if(data){
         this.setState({posts:data.posts,loadPosts:true});
@@ -33,7 +35,7 @@ export default class TimeLine extends Component {
     
   }
     render() {
-      const {user,posts,loadPosts}= this.state;
+      const {user,posts,loadPosts,userId}= this.state;
         return (
             <Fragment>
 <div>
@@ -64,7 +66,7 @@ export default class TimeLine extends Component {
                   </div>
                   <div className="user-detail text-center mb-3">
                     <div className="profile-img">
-                      <img src={profileIcon} alt="profile-img" className="avatar-130 img-fluid" />
+                      <img src={`${profilePhoto}${userId}`} onError={i=>i.target.src=`${profileIcon}`} alt="profile-img" className="avatar-130 img-fluid" />
                     </div>
                     <div className="profile-detail">
                       <h3 className>{user.firstName} {user.lastName}</h3>
