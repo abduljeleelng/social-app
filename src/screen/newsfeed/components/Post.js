@@ -32,7 +32,7 @@ const timeAgo = (prevDate) => {
    // console.log(timeAgo(new Date("Thu Oct 25 2018").getTime()));
 
 export default function Post({posts}) {
-  console.log(JSON.stringify(posts))
+  //console.log(JSON.stringify(posts))
     return (
       <Fragment>
         {
