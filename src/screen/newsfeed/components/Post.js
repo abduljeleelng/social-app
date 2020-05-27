@@ -3,6 +3,7 @@ import profileIcon from '../img/profileIcon.png'
 import { profilePhoto } from '../../timeline/api';
 import { Link } from 'react-router-dom';
 import { photoAPI } from '../api';
+import { Comment } from '.';
 
 const timeAgo = (prevDate) => {
   const diff = Number(new Date()) - prevDate;
@@ -194,14 +195,8 @@ export default function Post({posts}) {
                       </div>
                     </li>
                   </ul>
-                  <form action="" className="comment-text d-flex align-items-center mt-3">
-                    <input type="text" className="form-control rounded" />
-                    <div className="comment-attagement d-flex">
-                      <a href="fake"><i className="ri-link mr-3" /></a>
-                      <a href="fake"><i className="ri-user-smile-line mr-3" /></a>
-                      <a href="fake"><i className="ri-camera-line mr-3" /></a>
-                    </div>
-                  </form>
+                  {/**comments box here */}
+                  <Comment />
                 </div>
               </div>
             </div>

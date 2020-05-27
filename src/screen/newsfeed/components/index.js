@@ -4,5 +4,6 @@ import Post from './Post';
 import Story from './Story';
 import Event from './Event';
 import Birthday from './Birthday';
+import Comment from './Comment'
 
-export {Header,Create,Post,Story,Event,Birthday};
+export {Header,Create,Post,Story,Event,Birthday,Comment};
