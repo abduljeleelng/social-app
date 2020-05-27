@@ -25,6 +25,7 @@ export default class Comment extends Component {
 
     addComment=e=> {
         e.preventDefault();
+        const {text} = this.state;
         if (!isAuthenticated) {
             this.setState({ error: "Please signin to leave a comment" });
             return false;
@@ -33,18 +34,13 @@ export default class Comment extends Component {
             const userId = isAuthenticated().user._id;
             const token = isAuthenticated().token;
             const postId = this.props.postId;
-
-            comment(userId, token, postId, { text: this.state.text }).then(
-                data => {
-                    if (data.error) {
-                        console.log(data.error);
-                    } else {
-                        this.setState({ text: "" });
-                        // dispatch fresh list of coments to parent (SinglePost)
-                        this.props.updateComments(data.comments);
-                    }
-                }
-            );
+            comment(userId, token, postId, {text}).then(data =>{
+                console.log(JSON.stringify(data));
+            })
+                    //if (data.error) {console.log(data.error);} else {this.setState({ text: "" });
+                        // dispatch fresh list of coments to parent (SinglePost) 
+                      //  this.props.updateComments(data.comments);}
+               
         }
     };
 
@@ -75,11 +71,13 @@ export default class Comment extends Component {
         const { error } = this.state;
         return (
             <form className="comment-text d-flex align-items-center mt-3">
-                <input 
+                <textarea 
                 type="text"
+                cols={1}
+                rows={1}
                 onChange={this.handleChange}
                 value={this.state.text} 
-                className="form-control rounded" />
+                className="form-control rounded" ></textarea>
                 <div className="comment-attagement d-flex">
                 <i onClick={this.addComment} className="ri-link mr-3" />
                 <i className="ri-user-smile-line mr-3" />
