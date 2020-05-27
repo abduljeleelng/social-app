@@ -12,22 +12,23 @@ export default class Comment extends Component {
         this.setState({ text: event.target.value,error:'' });
     };
 
-    isValid = () => {
+    isValid=()=> {
+        //e.preventDefault();
         const { text } = this.state;
         if (!text.length > 0 || text.length > 150) {
             this.setState({error:"Comment should not be empty and less than 150 characters long"});
+            alert("Comment should not be empty and less than 150 characters long");
             return false;
         }
         return true;
     };
 
-    addComment = e => {
+    addComment=e=> {
         e.preventDefault();
         if (!isAuthenticated) {
             this.setState({ error: "Please signin to leave a comment" });
             return false;
         }
-
         if (this.isValid()) {
             const userId = isAuthenticated().user._id;
             const token = isAuthenticated().token;
@@ -73,14 +74,14 @@ export default class Comment extends Component {
         const { comments } = this.props;
         const { error } = this.state;
         return (
-            <form action={this.addComment} className="comment-text d-flex align-items-center mt-3">
+            <form className="comment-text d-flex align-items-center mt-3">
                 <input 
                 type="text"
                 onChange={this.handleChange}
                 value={this.state.text} 
                 className="form-control rounded" />
                 <div className="comment-attagement d-flex">
-                <i className="ri-link mr-3" />
+                <i onClick={this.addComment} className="ri-link mr-3" />
                 <i className="ri-user-smile-line mr-3" />
                 <i className="ri-camera-line mr-3" />
                 </div>
