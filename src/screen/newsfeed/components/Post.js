@@ -194,7 +194,7 @@ export default function Post({posts}) {
                       </div>
                     </li>
                   </ul>
-                  <form className="comment-text d-flex align-items-center mt-3">
+                  <form action="" className="comment-text d-flex align-items-center mt-3">
                     <input type="text" className="form-control rounded" />
                     <div className="comment-attagement d-flex">
                       <a href="fake"><i className="ri-link mr-3" /></a>
