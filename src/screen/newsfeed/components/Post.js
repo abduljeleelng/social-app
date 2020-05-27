@@ -40,7 +40,6 @@ export default function Post({posts}) {
           posts && posts.length > 0 ? 
           posts.map((post,i)=>{
             const comments = post.comments.reverse();
-            console.log(JSON.stringify(comments));
             return (
               <div className="col-sm-12" key={i}>
               <div className="iq-card iq-card-block iq-card-stretch iq-card-height">

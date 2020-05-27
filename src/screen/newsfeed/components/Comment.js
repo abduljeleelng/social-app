@@ -35,7 +35,14 @@ export default class Comment extends Component {
             const token = isAuthenticated().token;
             const postId = this.props.postId;
             comment(userId, token, postId, {text}).then(data =>{
-                console.log(JSON.stringify(data));
+                if(data.error){
+                    alert("error in posting comment ");
+                }else{
+                    alert("commenst was successful");
+                    this.setState({text:""})
+                    window.location.reload();
+                }
+                //console.log(JSON.stringify(data));
             })
                     //if (data.error) {console.log(data.error);} else {this.setState({ text: "" });
                         // dispatch fresh list of coments to parent (SinglePost) 
@@ -67,8 +74,8 @@ export default class Comment extends Component {
     };
 
     render() {
-        const { comments } = this.props;
-        const { error } = this.state;
+       // const { comments } = this.props;
+       // const { error } = this.state;
         return (
             <form className="comment-text d-flex align-items-center mt-3">
                 <textarea 
@@ -79,9 +86,7 @@ export default class Comment extends Component {
                 value={this.state.text} 
                 className="form-control rounded" ></textarea>
                 <div className="comment-attagement d-flex">
-                <i onClick={this.addComment} className="ri-link mr-3" />
-                <i className="ri-user-smile-line mr-3" />
-                <i className="ri-camera-line mr-3" />
+                <i onClick={this.addComment} className="dripicons-direction mr-3" />
                 </div>
             </form>
         )
