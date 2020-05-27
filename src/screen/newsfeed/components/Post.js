@@ -189,13 +189,13 @@ export default function Post({posts}) {
                               <img src={`${profilePhoto}${comment.postedBy._id}`} onError={i=>i.target.src=`${profileIcon}`} alt="user" className="avatar-35 rounded-circle img-fluid" />
                             </div>
                             <div className="comment-data-block ml-3">
-                              <h6>{comment.postedBy.firstName} {comment.postedBy.lastName}</h6>
-                              <p className="mb-0">{comment.text}</p>
+                              <Link to={`/${comment.postedBy._id}`} ><h6>{comment.postedBy.firstName} {comment.postedBy.lastName}</h6></Link>
+                              <p className="mb-0" style={{color:'#fff', marginLeft:5}}>{comment.text}</p>
                               <div className="d-flex flex-wrap align-items-center comment-activity">
                                {/* <a href="fake">like</a>
                                 <a href="fake">reply</a>
                                 <a href="fake">translate</a>*/}
-                                comment about &nbsp; <span>{timeAgo(new Date(comment.created).getTime())} </span>
+                                <p style={{marginLeft:20}}> comment about &nbsp; <span>{timeAgo(new Date(comment.created).getTime())} </span></p>
                               </div>
                             </div>
                           </div>
