@@ -2,7 +2,7 @@ import React, { Fragment, Component } from 'react';
 import profileIcon from '../img/profileIcon.png'
 import { profilePhoto } from '../../timeline/api';
 import { Link } from 'react-router-dom';
-import { photoAPI, like, unlike } from '../api';
+import { photoAPI, like, unlike,posts, deletePost } from '../api';
 import { Comment } from '.';
 import { isAuthenticated } from '../../../auth';
 
@@ -34,38 +34,112 @@ const timeAgo = (prevDate) => {
    // console.log(timeAgo(new Date("Thu Oct 25 2018").getTime()));
 
 export default class Post extends Component {
-  //const [likee, setLike] = useState(false);
-  //const [likes,setLikes] = useState(0);
+  constructor(props){
+    super(props);
+    this.state = {
+      post: "",
+      redirectToHome: false,
+      redirectToSignin: false,
+      like: false,
+      likes: 0,
+      comments: []
+    };
+  }
 
-
-
-  likeToggle = (postId) => {
-    //if (!isAuthenticated()) {this.setState({ redirectToSignin: true });return false;}
-    //let callApi = likee ? unlike : like;
-    const userId = isAuthenticated().user._id;
-    const token = isAuthenticated().token;
-    callApi(userId, token, postId).then(data=> {
-      if (data.error) {
-          console.log(data.error);
-      } else {
-        console.log(JSON.stringify(data))
-        //setLike(!likee);
-        //setLikes(data.likes.length);
-      }
-    });
+  checkLike = likes => {
+    const userId = isAuthenticated() && isAuthenticated().user._id;
+    let match = likes.indexOf(userId) !== -1;
+    return match;
   };
 
+
+  /* componentDidMount = () => {
+    posts().then(data => {
+        if (data.error) {
+            console.log(data.error);
+        } else {
+            this.setState({
+                post: data,
+                likes: data.likes.length,
+                like: this.checkLike(data.likes),
+                comments: data.comments
+            });
+        }
+    });
+  };
+  */
+
+  componentDidMount(){
+    this.setState({user:isAuthenticated().user});
+    posts().then(posts=>{
+        if(posts){
+            this.setState({posts,loadPost:true,})
+        }else{
+            console.log(JSON.stringify(posts));
+        }
+    })
+  };
+
+  updateComments = comments => {
+    this.setState({ comments });
+  };
+
+  likeToggle = () => {
+    if (!isAuthenticated()) {
+        this.setState({ redirectToSignin: true });
+        return false;
+    }
+    let callApi = this.state.like ? unlike : like;
+    const userId = isAuthenticated().user._id;
+    const postId = this.state.post._id;
+    const token = isAuthenticated().token;
+    callApi(userId, token, postId).then(data => {
+        if (data.error) {
+            console.log(data.error);
+        } else {
+            this.setState({
+                like: !this.state.like,
+                likes: data.likes.length
+            });
+        }
+    });
+};
+
+deletePost = () => {
+    const postId = this.props.match.params.postId;
+    const token = isAuthenticated().token;
+    deletePost(postId, token).then(data => {
+        if (data.error) {
+            console.log(data.error);
+        } else {
+            this.setState({ redirectToHome: true });
+        }
+    });
+};
+
+deleteConfirmed = () => {
+    let answer = window.confirm(
+        "Are you sure you want to delete your post?"
+    );
+    if (answer) {
+        this.deletePost();
+    }
+};
+
+
+
   render(){
+    const posts = this.props.posts
+    const {like,likes}=this.state;
     return (
       <Fragment>
         {
           posts && posts.length > 0 ? 
           posts.map((post,i)=>{
             const comments = post.comments.reverse();
-            //setLikes(post.likes.length);
-            //console.log(JSON.stringify(likes));
-            
-
+            const likes = post.likes.length;
+            const like  = this.checkLike(post.likes);
+            console.log(JSON.stringify({like,likes}))
             return (
               <div className="col-sm-12" key={i}>
               <div className="iq-card iq-card-block iq-card-stretch iq-card-height">
@@ -161,7 +235,7 @@ export default class Post extends Component {
                             <div className="dropdown">
                               <span className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
                                 {
-                                  likee ? 
+                                  like ? 
                                   (
                                     <>
                                     <i onClick={``} className="dripicons-star mr-3" /> {post.likes.length} Likes
