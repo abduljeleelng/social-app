@@ -38,7 +38,7 @@ export default class Comment extends Component {
                 if(data.error){
                     alert("error in posting comment ");
                 }else{
-                    alert("commenst was successful");
+                    alert("comment was successful");
                     this.setState({text:""})
                     window.location.reload();
                 }

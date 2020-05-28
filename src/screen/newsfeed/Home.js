@@ -38,16 +38,16 @@ export default class Home extends Component {
         return (
             <Fragment>
                 <Header user={user} />
-                <div id="content-page" class="content-page">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-8 row m-0 p-0">
+                <div id="content-page" className="content-page">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-8 row m-0 p-0">
                                 <Create user={user} />
                                 <ReactPlaceholder showLoadingAnimation  rows={7} ready={loadPost}>
                                     <Post posts={posts} />
                                 </ReactPlaceholder>
                             </div>
-                            <div class="col-lg-4">
+                            <div className="col-lg-4">
                                 <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={loadStory}>
                                     <Story />
                                 </ReactPlaceholder>

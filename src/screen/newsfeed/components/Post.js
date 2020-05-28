@@ -1,9 +1,10 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import profileIcon from '../img/profileIcon.png'
 import { profilePhoto } from '../../timeline/api';
 import { Link } from 'react-router-dom';
-import { photoAPI } from '../api';
+import { photoAPI, like, unlike } from '../api';
 import { Comment } from '.';
+import { isAuthenticated } from '../../../auth';
 
 const timeAgo = (prevDate) => {
   const diff = Number(new Date()) - prevDate;
@@ -33,13 +34,37 @@ const timeAgo = (prevDate) => {
    // console.log(timeAgo(new Date("Thu Oct 25 2018").getTime()));
 
 export default function Post({posts}) {
-  //console.log(JSON.stringify(posts))
+  const [likee, setLike] = useState(false);
+  const [likes,setLikes] = useState(0);
+
+
+
+  const likeToggle = (postId) => {
+    //if (!isAuthenticated()) {this.setState({ redirectToSignin: true });return false;}
+    let callApi = likee ? unlike : like;
+    const userId = isAuthenticated().user._id;
+    const token = isAuthenticated().token;
+    callApi(userId, token, postId).then(data=> {
+      if (data.error) {
+          console.log(data.error);
+      } else {
+        console.log(JSON.stringify(data))
+        //setLike(!likee);
+        setLikes(data.likes.length);
+      }
+    });
+  };
+
     return (
       <Fragment>
         {
           posts && posts.length > 0 ? 
           posts.map((post,i)=>{
             const comments = post.comments.reverse();
+            //setLikes(post.likes.length);
+            //console.log(JSON.stringify(likes));
+            
+
             return (
               <div className="col-sm-12" key={i}>
               <div className="iq-card iq-card-block iq-card-stretch iq-card-height">
@@ -134,7 +159,21 @@ export default function Post({posts}) {
                           <div className="total-like-block ml-2 mr-3">
                             <div className="dropdown">
                               <span className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
-                                {post.likes.length} Likes
+                                {
+                                  likee ? 
+                                  (
+                                    <>
+                                    <i onClick={likeToggle(post._id)} className="dripicons-star mr-3" /> {post.likes.length} Likes
+                                    </>
+                                  )
+                                  :
+                                  (
+                                    <>
+                                    <i onClick={likeToggle(post._id)} className="dripicons-direction mr-3" /> {post.likes.length} Likes
+                                    </>
+                                  )
+                                }
+                                
                               </span>
                               {/*
                               <div className="dropdown-menu">
