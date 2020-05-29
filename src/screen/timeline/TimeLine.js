@@ -307,7 +307,7 @@ export default class TimeLine extends Component {
 
 
 
-
+                  {/*
               <div className="tab-pane fade" id="about" role="tabpanel">
                 <div className="iq-card">
                   <div className="iq-card-body">
@@ -3196,7 +3196,7 @@ export default class TimeLine extends Component {
                 </div>
               </div>
             
-          
+                    */}
             </div>
           </div>
         </div>
