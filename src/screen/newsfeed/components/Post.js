@@ -37,7 +37,7 @@ export default class Post extends Component {
   constructor(props){
     super(props);
     this.state = {
-      post: "",
+      posts:[],
       redirectToHome: false,
       redirectToSignin: false,
       like: false,
@@ -46,11 +46,7 @@ export default class Post extends Component {
     };
   }
 
-  checkLike = likes => {
-    const userId = isAuthenticated() && isAuthenticated().user._id;
-    let match = likes.indexOf(userId) !== -1;
-    return match;
-  };
+
 
 
   /* componentDidMount = () => {
@@ -69,13 +65,16 @@ export default class Post extends Component {
   };
   */
 
-  componentDidMount(){
+  componentDidMount=()=>{
     this.setState({user:isAuthenticated().user});
     posts().then(posts=>{
-        if(posts){
-            this.setState({posts,loadPost:true,})
+        if(posts.error){
+          console.log(JSON.stringify(posts));
         }else{
-            console.log(JSON.stringify(posts));
+          //console.log(JSON.stringify(posts));
+          this.setState({posts,
+              //likes:posts.likes.length,
+              loadPost:true,})
         }
     })
   };
@@ -85,10 +84,7 @@ export default class Post extends Component {
   };
 
   likeToggle = () => {
-    if (!isAuthenticated()) {
-        this.setState({ redirectToSignin: true });
-        return false;
-    }
+   // if (!isAuthenticated()) {this.setState({ redirectToSignin: true });return false;}
     let callApi = this.state.like ? unlike : like;
     const userId = isAuthenticated().user._id;
     const postId = this.state.post._id;
@@ -103,7 +99,7 @@ export default class Post extends Component {
             });
         }
     });
-};
+  };
 
 deletePost = () => {
     const postId = this.props.match.params.postId;
@@ -126,20 +122,43 @@ deleteConfirmed = () => {
     }
 };
 
+likePost=(userId, token, id)=>{
+  like(userId, token, id).then(data=>{if (data.error) {console.log(data.error);} else {this.setState({like: !this.state.like,likes: data.likes.length});}})
+}
+unLikePost=(userId, token, id)=>{
+  unlike(userId, token, id).then(data=>{if (data.error) {console.log(data.error);} else {this.setState({like: !this.state.like,likes: data.likes.length});}})
+}
+
 
 
   render(){
-    const posts = this.props.posts
-    const {like,likes}=this.state;
+    //const posts = this.props.posts
+    const {like,likes,posts}=this.state;
+    ///console.log(JSON.stringify(posts));
     return (
       <Fragment>
         {
           posts && posts.length > 0 ? 
           posts.map((post,i)=>{
             const comments = post.comments.reverse();
-            const likes = post.likes.length;
-            const like  = this.checkLike(post.likes);
-            console.log(JSON.stringify({like,likes}))
+            //console.log(JSON.stringify({like,likes}))
+            const checkLike = likes => {
+              const userId = isAuthenticated() && isAuthenticated().user._id;
+              let match = likes.indexOf(userId) !== -1;
+              return match;
+            };
+            const likeToggle=()=>{
+            this.setState({likes:post.likes.length})
+            this.setState({like:checkLike(post.likes)})
+              console.log("click like button");
+              // const callApi = this.state.like ? unlike : like;
+               const userId = isAuthenticated().user._id;
+               const token = isAuthenticated().token;
+               const {like} = this.state;
+               like ? this.unLikePost(userId, token, post._id):this.likePost(userId, token, post._id)
+               //callApi(userId, token, post._id).then(data => { if (data.error) {console.log(data.error);} else {this.setState({like: !this.state.like,likes: data.likes.length});}});
+               console.log(JSON.stringify({like,likes}))
+             };
             return (
               <div className="col-sm-12" key={i}>
               <div className="iq-card iq-card-block iq-card-stretch iq-card-height">
@@ -238,13 +257,13 @@ deleteConfirmed = () => {
                                   like ? 
                                   (
                                     <>
-                                    <i onClick={``} className="dripicons-star mr-3" /> {post.likes.length} Likes
+                                    <button onClick={likeToggle} className="dripicons-thumbs-down" /> {likes} Likes
                                     </>
                                   )
                                   :
                                   (
                                     <>
-                                    <i onClick={``} className="dripicons-direction mr-3" /> {post.likes.length} Likes
+                                    <button onClick={likeToggle} className="dripicons-thumbs-up" /> {likes} Likes
                                     </>
                                   )
                                 }
