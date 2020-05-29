@@ -1,6 +1,6 @@
 import React,{Fragment} from 'react';
 import cover from '../img/cover.jpg';
-import profile from '../img/profile.png';
+import profile from '../img/profileIcon.png';
 
 export default function Cover({user,posts}) {
     return (

@@ -5,5 +5,6 @@ import Story from './Story';
 import Event from './Event';
 import Birthday from './Birthday';
 import Comment from './Comment'
+import Footer from './Footer';
 
-export {Header,Create,Post,Story,Event,Birthday,Comment};
+export {Header,Create,Post,Story,Event,Birthday,Comment,Footer};

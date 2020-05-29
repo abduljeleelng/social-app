@@ -6,6 +6,7 @@ import cover from './img/cover.jpg';
 import profileIcon from './img/profileIcon.png';
 
 import { Create,Header,Post} from '../newsfeed/components';
+import {Cover,TimeLinePost, TimeLineEvent, Abouts, FriendList,Photos} from './component';
 import { isAuthenticated } from '../../auth';
 import { postBy } from '../newsfeed/api';
 import { profilePhoto,user } from './api';
@@ -21,6 +22,7 @@ export default class TimeLine extends Component {
       userId:'',
       about:'',
       loadAbout:false,
+      loadEvent:false,
     }
   }
 
@@ -58,7 +60,7 @@ export default class TimeLine extends Component {
     }
   }
   render() {
-    const {user,posts,loadPosts,about,loadAbout}= this.state;
+    const {user,posts,loadPosts,about,loadAbout,loadEvent}= this.state;
     //friends
     //console.log(JSON.stringify({about,loadAbout}))
     //const friends = about.friends.length;
@@ -161,8 +163,11 @@ export default class TimeLine extends Component {
               <div className="tab-pane fade active show" id="timeline" role="tabpanel">
                 <div className="iq-card-body p-0">
                   <div className="row">
+                    <ReactPlaceholder showLoadingAnimation  type='media' rows={2} ready={loadEvent}>
+                      <TimeLineEvent />
+                    </ReactPlaceholder>
+                    {/*
                     <div className="col-lg-4">
-                      {/*
                       <div className="iq-card">
                         <div className="iq-card-body">
                           <a href="#"><span className="badge badge-pill badge-primary font-weight-normal ml-auto mr-1"><i className="ri-star-line" /></span> 27 Items for yoou</a>
@@ -280,8 +285,8 @@ export default class TimeLine extends Component {
                           </ul>
                         </div>
                       </div>
-                      */}
                     </div>
+                    */}
                     <div className="col-lg-8">
                       <Create user={user} />
                       <ReactPlaceholder showLoadingAnimation  rows={7} ready={loadPosts}>
@@ -291,7 +296,18 @@ export default class TimeLine extends Component {
                   </div>
                 </div>
               </div>
-              {/*
+
+              <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={loadAbout}>
+                <Abouts about={about} />
+              </ReactPlaceholder>
+              <FriendList about={about} />
+              <Photos photo={``} />
+             
+
+
+
+
+
               <div className="tab-pane fade" id="about" role="tabpanel">
                 <div className="iq-card">
                   <div className="iq-card-body">
@@ -3180,7 +3196,7 @@ export default class TimeLine extends Component {
                 </div>
               </div>
             
-            */}
+          
             </div>
           </div>
         </div>

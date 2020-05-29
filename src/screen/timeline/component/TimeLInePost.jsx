@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { photoAPI } from '../../newsfeed/api';
-import logo from '../../asset/img/logo.png'
+import logo from '../img/profileIcon.png'
 
 export default function TimeLInePost({posts}) {
   //console.log(JSON.stringify(posts))
