@@ -8,7 +8,7 @@ import profileIcon from './img/profileIcon.png';
 import { Create,Header,Post} from '../newsfeed/components';
 import { isAuthenticated } from '../../auth';
 import { postBy } from '../newsfeed/api';
-import { profilePhoto } from './api';
+import { profilePhoto,user } from './api';
 
 
 export default class TimeLine extends Component {
@@ -19,37 +19,55 @@ export default class TimeLine extends Component {
       loadPosts:false,
       posts:[],
       userId:'',
+      about:'',
+      loadAbout:false,
     }
   }
 
   componentDidMount(){
     const userId  = this.props.match.params.userId
     this.setState({userId,user:isAuthenticated().user});
-    postBy(userId).then(data=>{
-      if(data){
-        this.setState({posts:data.posts,loadPosts:true});
-      }else{
+    postBy(userId).then((data,err)=>{
+      if(err) return console.log(JSON.stringify({err, errormessage:"Unable to fetch user post"}))
+      if(data.error){
         console.log(JSON.stringify(data))
+      }else{
+        this.setState({posts:data.posts,loadPosts:true});
       }
     });
-    
+    user(userId).then(data=>{
+      if(data.error){return console.log(data.error)}
+      this.setState({about:data,loadAbout:true})
+    })
   }
-    render() {
-      const {user,posts,loadPosts,userId}= this.state;
-        return (
-            <Fragment>
-<div>
-  <div className="wrapper">
-    {/* Sidebar  */}
- 
-    {/* TOP Nav Bar */}
+  componentDidUpdate(preProps){
+    const userId  = this.props.match.params.userId;
+    if(userId !== this.state.userId){
+      postBy(userId).then((data,err)=>{
+        if(err) return console.log(JSON.stringify({err, errormessage:"Unable to fetch user post"}))
+        if(data.error){
+          console.log(JSON.stringify(data))
+        }else{
+          this.setState({posts:data.posts,loadPosts:true});
+        }
+      });
+      user(userId).then(data=>{
+        if(data.error){return console.log(data.error)}
+        this.setState({about:data,loadAbout:true})
+      })
+    }
+  }
+  render() {
+    const {user,posts,loadPosts,about,loadAbout}= this.state;
+    //friends
+    //console.log(JSON.stringify({about,loadAbout}))
+    //const friends = about.friends.length;
+    ///console.log(JSON.stringify({friends,loadAbout}))
+    return (
+    <Fragment>
+    <div>
+    <div className="wrapper">
     <Header user={user} />
-    
-    {/* TOP Nav Bar END */}
-    {/* Right Sidebar Panel Start*/}
-  
-    {/* Right Sidebar Panel End*/}
-    {/* Page Content  */}
     <div id="content-page" className="content-page">
       <div className="container">
         <div className="row">
@@ -66,10 +84,10 @@ export default class TimeLine extends Component {
                   </div>
                   <div className="user-detail text-center mb-3">
                     <div className="profile-img">
-                      <img src={`${profilePhoto}${userId}`} onError={i=>i.target.src=`${profileIcon}`} alt="profile-img" className="avatar-130 img-fluid" />
+                      <img src={`${profilePhoto}${about && about._id}`} onError={i=>i.target.src=`${profileIcon}`} alt="profile-img" className="avatar-130 img-fluid" />
                     </div>
                     <div className="profile-detail">
-                      <h3 className>{user.firstName} {user.lastName}</h3>
+                      <h3 className>{about && about.firstName} {about && about.lastName}</h3>
                     </div>
                   </div>
                   <div className="profile-info p-4 d-flex align-items-center justify-content-between position-relative">
@@ -100,16 +118,16 @@ export default class TimeLine extends Component {
                     <div className="social-info">
                       <ul className="social-data-block d-flex align-items-center justify-content-between list-inline p-0 m-0">
                         <li className="text-center pl-3">
-                          <h6>Posts</h6>
-                          <p className="mb-0">690</p>
+                          <h6>Friends</h6>
+                          <p className="mb-0">{about && about.friends.length}</p>
                         </li>
                         <li className="text-center pl-3">
                           <h6>Followers</h6>
-                          <p className="mb-0">206</p>
+                          <p className="mb-0">{about && about.followers.length}</p>
                         </li>
                         <li className="text-center pl-3">
                           <h6>Following</h6>
-                          <p className="mb-0">100</p>
+                          <p className="mb-0">{about && about.following.length}</p>
                         </li>
                       </ul>
                     </div>
