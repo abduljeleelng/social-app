@@ -70,11 +70,31 @@ export default class Setting extends Component {
       if(data.error){ 
         console.log(data);
         this.setState({loading:false,error:'error in uploading your profile | cover photo\n note your photo should not more than 10MB '});
-     }
+        return  Swal.fire({
+          title:'error in uploading your profile | cover photo\n note your photo should not more than 10MB ',
+          icon: 'error',
+          allowOutsideClick:false,
+          confirmButtonText: 'Try Again',
+          confirmButtonColor: '#3085d6',
+          preConfirm:()=>{
+            this.setState({loading:false,});
+            //console.log('redirect')
+          }
+        })
+      }
       else{
-      
-        this.setState({ loading:false,gohome:true,cover:"",photo:"",message:data.message,show:true
-        });
+      this.setState({ loading:false,gohome:true,cover:"",photo:"",message:data.message,});
+        return  Swal.fire({
+          title:data.message,
+          icon: 'success',
+          allowOutsideClick:false,
+          confirmButtonText: 'Ok',
+          confirmButtonColor: '#3085d6',
+          preConfirm:()=>{
+            this.setState({loading:false,show:true});
+            //console.log('redirect')
+          }
+        })
       }
     })
   }
@@ -88,16 +108,12 @@ export default class Setting extends Component {
 
   }
     render() {
-      const {user,show,message,loading,username,email,password,password2,day,month,year,phone,address,about,qoutes,}=this.state;
-        return (
-            <Fragment>
-<div>
-  <div id="loading">
-    <div id="loading-center">
-    </div>
-  </div>
+      const {user,show,loading,username,email,password,password2,day,month,year,phone,address,about,qoutes,}=this.state;
+      if(show) return window.location.reload();
 
-  <div className="wrapper">
+    return (
+      <Fragment>
+        <div className="wrapper">
     <Header logo={logo} user={user} noProfile={noProfile} profile='' />
     <div id="content-page" className="content-page">
       <div className="container">
@@ -274,11 +290,8 @@ export default class Setting extends Component {
       </div>
     </div>
   </div>
-  {/***Footer  */}
-
-</div>
-
-            </Fragment>
-        )
+        {/***Footer  */}
+      </Fragment>
+    )
     }
 }
