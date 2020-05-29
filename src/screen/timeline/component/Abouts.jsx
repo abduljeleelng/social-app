@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Abouts({about}) {
     return (
@@ -19,7 +20,7 @@ export default function Abouts({about}) {
                             <a className="nav-link" data-toggle="pill" href="#details">Details About You</a>
                           </li>
                           <li>
-                            <a className="nav-link" href="/user/setting">Account Seeting </a>
+                            <Link className="nav-link" to="/user/setting">Account Seeting </Link>
                           </li>
                         </ul>
                       </div>
@@ -158,9 +159,9 @@ export default function Abouts({about}) {
                           </div>
                           <div className="tab-pane fade" id="details" role="tabpanel">
                             <h4 className="mb-3">About You</h4>
-                            <p>{about.about}</p>
+                            <p>{about && about.about}</p>
                             <h4 className="mt-3 mb-3">Favorite Quotes</h4>
-                            <p>{about.status}</p>
+                            <p>{about && about.status}</p>
                           </div>
                         </div>
                       </div>
