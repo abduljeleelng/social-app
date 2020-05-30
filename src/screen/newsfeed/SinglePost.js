@@ -6,12 +6,11 @@ import '../../custom/css/style.css';
 import '../../custom/css/responsive.css';
 import { Link } from 'react-router-dom';
 
-
 import profileIcon from './img/profileIcon.png'
 import { profilePhoto } from '../timeline/api';
 import { isAuthenticated } from '../../auth';
 import { photoAPI, like, unlike, deletePost,SinglePost } from './api';
-import { Comment } from './components';
+import { Comment,Create,Header,Post, Story,Event, Birthday } from './components';
 
 
 const timeAgo = (prevDate) => {
@@ -61,13 +60,14 @@ export default class Single extends Component {
                 <Header user={user} />
                 <div id="content-page" className="content-page">
                     <div className="container">
-                        <div className="row">
+                        <div className="row">  
                             <div className="col-lg-8 row m-0 p-0">
                                 <Create user={user} />
                                 <ReactPlaceholder showLoadingAnimation  rows={7} ready={loadPost}>
                                     <Post posts={posts} />
                                 </ReactPlaceholder>
                             </div>
+                       
                             <div className="col-lg-4">
                                 <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={loadStory}>
                                     <Story />
