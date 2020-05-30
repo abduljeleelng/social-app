@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Birthday(b) {
     return (
@@ -13,7 +14,7 @@ export default function Birthday(b) {
           {
             b.b.length > 0 ? b.b.map((b,i)=>{
             return(
-              <a href={`/${b._id}`} >
+              <Link href={`/${b._id}`} >
               <li className="d-flex mb-4 align-items-center" key={i}>
               <img src="images/user/01.jpg" alt="story-img" className="rounded-circle img-fluid" />
               <div className="stories-data ml-3">
@@ -21,7 +22,7 @@ export default function Birthday(b) {
                 <p className="mb-0">Today</p>
               </div>
             </li>
-            </a>
+            </Link>
             )})
           :
           <li className="d-flex mb-4 align-items-center">

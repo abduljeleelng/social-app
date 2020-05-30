@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function BirthdayMonth(data) {
     return (
@@ -13,7 +14,7 @@ export default function BirthdayMonth(data) {
                 <ul className="media-story m-0 p-0">
                     {
                         data.data.length > 0 ? data.data.map((b,i)=>(
-                            <a href={`/${b._id}`} >
+                            <Link href={`/${b._id}`} >
                                 <li className="d-flex mb-4 align-items-center" key={i}>
                                     <img src="images/user/01.jpg" alt="story-img" className="rounded-circle img-fluid" />
                                     <div className="stories-data ml-3">
@@ -22,7 +23,7 @@ export default function BirthdayMonth(data) {
                                     </div>
                                 </li>
 
-                            </a>
+                            </Link>
                         ))
                         :
                         <li className="d-flex mb-4 align-items-center">
