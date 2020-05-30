@@ -2,7 +2,7 @@ import React, { Fragment, Component } from 'react';
 import profileIcon from '../img/profileIcon.png'
 import { profilePhoto } from '../../timeline/api';
 import { Link } from 'react-router-dom';
-import { photoAPI, like, unlike,posts, deletePost } from '../api';
+import { photoAPI, like, unlike, deletePost,SinglePost } from '../api';
 import { Comment } from '.';
 import { isAuthenticated } from '../../../auth';
 
