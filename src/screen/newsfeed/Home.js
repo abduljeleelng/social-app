@@ -25,10 +25,10 @@ export default class Home extends Component {
     componentDidMount(){
         this.setState({user:isAuthenticated().user});
         posts().then(posts=>{
-            if(posts){
-                this.setState({posts,loadPost:true})
-            }else{
+            if(posts.error){
                 console.log(JSON.stringify(posts));
+            }else{
+                this.setState({posts,loadPost:true})
             }
         })
 

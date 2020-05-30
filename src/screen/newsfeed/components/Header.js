@@ -41,23 +41,23 @@ export default function HomeHeader({user}) {
             </Link>
           </li>
           <li>
-            <Link to="/" className="iq-waves-effect d-flex align-items-center">
+            <Link to="/user/setting" className="iq-waves-effect d-flex align-items-center">
               <i className="ri-home-line" />
             </Link>
           </li>
           <li className="nav-item">
-            <a className="search-toggle iq-waves-effect" href><i className="ri-group-line" /></a>
+            <Link className="search-toggle iq-waves-effect" to="/"><i className="ri-group-line" /></Link>
             <div className="iq-sub-dropdown iq-sub-dropdown-large">
               <div className="iq-card shadow-none m-0">
                 <div className="iq-card-body p-0 ">
                   <div className="bg-primary p-3">
-                    <h5 className="mb-0 text-white">Friend Request<small className="badge  badge-light float-right pt-1"> 30 </small></h5>
+                    <h5 className="mb-0 text-white">Friend Request <small className="badge  badge-light float-right pt-1"> 30 </small></h5>
                   </div>
-                  {/** Friend request card tag  */}
+                  
                   <div className="iq-friend-request">
                     <div className="iq-sub-card iq-sub-card-big d-flex align-items-center justify-content-between">
                       <div className="d-flex align-items-center">
-                        <div className>
+                        <div className="">
                           <img className="avatar-40 rounded" src="images/user/01.jpg" alt="fake" />
                         </div>
                         <div className="media-body ml-3">
@@ -66,8 +66,8 @@ export default function HomeHeader({user}) {
                         </div>
                       </div>
                       <div className="d-flex align-items-center">
-                        <a href className="mr-3 btn btn-primary rounded">Confirm</a>
-                        <a href className="mr-3 btn btn-secondary rounded">Delete Request</a>
+                        <i  className="mr-3 btn btn-primary rounded">Confirm</i>
+                        <i  className="mr-3 btn btn-secondary rounded">Delete Request</i>
                       </div>
                     </div>
                   </div>
@@ -92,7 +92,7 @@ export default function HomeHeader({user}) {
                   </div>
                   <Link to={`/${`users`}`} className="iq-sub-card">
                     <div className="media align-items-center">
-                      <div className>
+                      <div className="">
                         <img className="avatar-40 rounded" src="images/user/01.jpg" alt="user" />
                       </div>
                       <div className="media-body ml-3">
@@ -117,9 +117,9 @@ export default function HomeHeader({user}) {
                   <div className="bg-primary p-3">
                     <h5 className="mb-0 text-white">All Messages<small className="badge  badge-light float-right pt-1">5</small></h5>
                   </div>
-                  <a href="fake" className="iq-sub-card">
+                  <Link to="/" className="iq-sub-card">
                     <div className="media align-items-center">
-                      <div className>
+                      <div className="">
                         <img className="avatar-40 rounded" src="images/user/01.jpg" alt="fake"/>
                       </div>
                       <div className="media-body ml-3">
@@ -127,7 +127,7 @@ export default function HomeHeader({user}) {
                         <small className="float-left font-size-12">13 Jun</small>
                       </div>
                     </div>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -87,10 +87,7 @@ export default class SinglePost extends Component {
     };
 
     likeToggle = () => {
-        if (!isAuthenticated()) {
-            this.setState({ redirectToSignin: true });
-            return false;
-        }
+        console.log("Button click")
         let callApi = this.state.like ? unlike : like;
         const userId = isAuthenticated().user._id;
         const postId = this.state.post._id;
