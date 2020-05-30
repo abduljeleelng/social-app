@@ -38,6 +38,7 @@ const timeAgo = (prevDate) => {
 
 
 export default function Post({posts}){
+  console.log(JSON.stringify(posts))
   return(
     posts && posts.length > 0 ? 
     posts.map((post,i)=>{
@@ -135,9 +136,14 @@ export default function Post({posts}){
                     </div>
                     <div className="total-like-block ml-2 mr-3">
                       <div className="dropdown">
+                       
                         <span className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
+                        <Link to={`/post/${post._id}`}>
                           <i className="dripicons-thumbs-up" /> {post.likes.length} Likes 
+                        </Link>
                         </span>
+  
+                    
                         {/*
                         <div className="dropdown-menu">
                           <a className="dropdown-item" href="fake">Max Emum</a>
@@ -154,9 +160,11 @@ export default function Post({posts}){
                   </div>
                   <div className="total-comment-block">
                     <div className="dropdown">
+                    <Link to={`/post/${post._id}`}>
                       <span className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
                       {post.comments.length} Comment
                       </span>
+                    </Link>
                       {/*
                       <div className="dropdown-menu">
                         <a className="dropdown-item" href="fake">Max Emum</a>
