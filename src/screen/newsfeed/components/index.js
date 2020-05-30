@@ -6,5 +6,6 @@ import Event from './Event';
 import Birthday from './Birthday';
 import Comment from './Comment'
 import Footer from './Footer';
+import BirthdayMonth from './BirthdayMonth.js';
 
-export {Header,Create,Post,Story,Event,Birthday,Comment,Footer};
+export {Header,Create,Post,Story,Event,Birthday,Comment,Footer,BirthdayMonth};

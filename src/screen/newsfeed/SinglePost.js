@@ -8,8 +8,8 @@ import { Link } from 'react-router-dom';
 import profileIcon from './img/profileIcon.png'
 import { profilePhoto } from '../timeline/api';
 import { isAuthenticated } from '../../auth';
-import { photoAPI, like, unlike, deletePost,singlePost } from './api';
-import { Comment,Create,Header, Story,Event, Birthday } from './components';
+import { photoAPI, like, unlike, deletePost,singlePost,birthday,birthdayMonth } from './api';
+import { Comment,Create,Header, Story,Event, Birthday,BirthdayMonth} from './components';
 
 
 const timeAgo = (prevDate) => {
@@ -46,14 +46,17 @@ export default class SinglePost extends Component {
             loadPost:false,
             loadStory:false,
             loadEvent:false,
-            loadBirth:false,
             user:'',
             post: "",
             redirectToHome: false,
             redirectToSignin: false,
             like: false,
             likes: 0,
-            comments: []
+            comments: [],
+            loadBirth:false,
+            loadBMonth:false,
+            birth:'',
+            bMonth:'',
         };
     }
     checkLike = likes => {
@@ -344,8 +347,11 @@ export default class SinglePost extends Component {
                                     <Event />
                                 </ReactPlaceholder>
                                 <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={loadBirth}>
-                                    <Birthday /> 
-                                </ReactPlaceholder>  
+                                    <Birthday b={birth} />
+                                </ReactPlaceholder>
+                                <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={loadBMonth}>
+                                    <BirthdayMonth data={bMonth} />
+                                </ReactPlaceholder> 
                             </div>
                         </div>
                     </div>
