@@ -111,80 +111,16 @@ const timeAgo = (prevDate) => {
             this.deletePost();
         }
     };
-
-  checkLike = likes => {
-    const userId = isAuthenticated() && isAuthenticated().user._id;
-    let match = likes.indexOf(userId) !== -1;
-    return match;
-  };
-
-  componentDidMount=()=>{
-    this.setState({user:isAuthenticated().user});
-    posts().then(posts=>{
-        if(posts.error){
-          console.log(JSON.stringify(posts));
-        }else{
-          //console.log(JSON.stringify(posts));
-          this.setState({posts,
-              //likes:posts.likes.length,
-              loadPost:true,})
-        }
-    })
-  };
-
-  updateComments = comments => {
-    this.setState({ comments });
-  };
-
-  likeToggle = () => {
-   // if (!isAuthenticated()) {this.setState({ redirectToSignin: true });return false;}
-    let callApi = this.state.like ? unlike : like;
-    const userId = isAuthenticated().user._id;
-    const postId = this.state.post._id;
-    const token = isAuthenticated().token;
-    callApi(userId, token, postId).then(data => {
-        if (data.error) {
-            console.log(data.error);
-        } else {
-            this.setState({
-                like: !this.state.like,
-                likes: data.likes.length
-            });
-        }
-    });
-  };
-
-deletePost = () => {
-    const postId = this.props.match.params.postId;
-    const token = isAuthenticated().token;
-    deletePost(postId, token).then(data => {
-        if (data.error) {
-            console.log(data.error);
-        } else {
-            this.setState({ redirectToHome: true });
-        }
-    });
-};
-
-deleteConfirmed = () => {
-    let answer = window.confirm(
-        "Are you sure you want to delete your post?"
-    );
-    if (answer) {
-        this.deletePost();
+    likePost=(userId, token, id)=>{
+    const { posts }= this.state;
+    like(userId, token, id).then(data=>{if (data.error) {console.log(data.error);} else 
+    {this.setState({like: !this.state.like,likes: posts.likes.length});}})
     }
-};
-
-likePost=(userId, token, id)=>{
-  const { posts }= this.state;
-  like(userId, token, id).then(data=>{if (data.error) {console.log(data.error);} else 
-  {this.setState({like: !this.state.like,likes: posts.likes.length});}})
-}
-unLikePost=(userId, token, id)=>{
-  const { posts }= this.state;
-  unlike(userId, token, id).then(data=>{if (data.error) {console.log(data.error);} else 
-  {this.setState({like: !this.state.like,likes: posts.likes.length});}})
-}
+    unLikePost=(userId, token, id)=>{
+    const { posts }= this.state;
+    unlike(userId, token, id).then(data=>{if (data.error) {console.log(data.error);} else 
+    {this.setState({like: !this.state.like,likes: posts.likes.length});}})
+    }
 
 renderPost=()=>{
   const {status,likes,posts}=this.state;
