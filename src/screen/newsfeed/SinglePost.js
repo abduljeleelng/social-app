@@ -69,12 +69,9 @@ export default class SinglePost extends Component {
         this.setState({user:isAuthenticated().user});
         const postId = this.props.match.params.postId;
         singlePost(postId).then(data => {
-            //console.log(JSON.stringify(data));
             if (data.error) {
-                //console.log(JSON.stringify({data,endpoint:"Value comes out with errors"}))
                 console.log(data.error);
             } else {
-                ///console.log(JSON.stringify({data,endpoint:"Value comes out"}))
                 this.setState({
                     post: data,
                     likes: data.likes.length,
@@ -83,6 +80,14 @@ export default class SinglePost extends Component {
                     loadPost:true,
                 });
             }
+        });
+        birthday().then(data=>{
+            if(data === undefined) return console.log("networ | server Error");
+            this.setState({birth:data,loadBirth:true});
+        });
+        birthdayMonth().then(data=>{
+            if(data === undefined) return console.log("networ | server Error");
+            this.setState({bMonth:data,loadBMonth:true});
         });
     };
     updateComments = comments => {
