@@ -1,5 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { profilePhoto } from '../../timeline/api';
+import profileIcon from '../img/profileIcon.png'
 
 export default function Birthday(b) {
     return (
@@ -16,7 +18,7 @@ export default function Birthday(b) {
             return(
               <Link href={`/${b._id}`} >
               <li className="d-flex mb-4 align-items-center" key={i}>
-              <img src="images/user/01.jpg" alt="story-img" className="rounded-circle img-fluid" />
+              <img src={`${profilePhoto}${b._id}`} onError={i=>i.target.src=`${profileIcon}`} alt="" className="rounded-circle img-fluid" />
               <div className="stories-data ml-3">
                 <h5> {b.firstName} {b.lastName}</h5>
                 <p className="mb-0">Today</p>
@@ -26,7 +28,7 @@ export default function Birthday(b) {
             )})
           :
           <li className="d-flex mb-4 align-items-center">
-          <img src="images/user/01.jpg" alt="story-img" className="rounded-circle img-fluid" />
+          <img src={`${profilePhoto}${b._id}`} onError={i=>i.target.src=`${profileIcon}`} alt="" className="rounded-circle img-fluid" />
           <div className="stories-data ml-3">
             <h5>No Birthday today , watch tomorow </h5>
             <p className="mb-0">Today</p>

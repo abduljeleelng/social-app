@@ -1,12 +1,13 @@
 import React, { Component, Fragment } from 'react';
 import ReactPlaceholder from 'react-placeholder';
 import "react-placeholder/lib/reactPlaceholder.css";
+import {Link} from 'react-router-dom';
 
 import cover from './img/cover.jpg';
 import profileIcon from './img/profileIcon.png';
 
 import { Create,Header,Post} from '../newsfeed/components';
-import {Cover,TimeLinePost, TimeLineEvent, Abouts, FriendList,Photos} from './component';
+import { TimeLineEvent, Abouts, FriendList,Photos} from './component';
 import { isAuthenticated } from '../../auth';
 import { postBy } from '../newsfeed/api';
 import { profilePhoto,user } from './api';
@@ -81,7 +82,7 @@ export default class TimeLine extends Component {
                     <img src={cover} alt="profile-bg" className="rounded img-fluid" />
                     <ul className="header-nav d-flex flex-wrap justify-end p-0 m-0">
                       <li><a href><i className="ri-pencil-line" /></a></li>
-                      <li><a href><i className="ri-settings-4-line" /></a></li>
+                      <li><Link to="/user/setting"><i className="ri-settings-4-line" /></Link></li>
                     </ul>
                   </div>
                   <div className="user-detail text-center mb-3">

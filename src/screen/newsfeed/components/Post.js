@@ -1,8 +1,9 @@
 import React from 'react';
-import profileIcon from '../img/profileIcon.png'
+
 import { profilePhoto } from '../../timeline/api';
 import { Link } from 'react-router-dom';
 import { photoAPI} from '../api';
+import profileIcon from '../img/profileIcon.png'
 import { Comment } from '.';
 ///import { isAuthenticated } from '../../../auth';
 
