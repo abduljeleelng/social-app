@@ -112,41 +112,19 @@ const timeAgo = (prevDate) => {
         }
     };
     likePost=(userId, token, id)=>{
-    const { posts }= this.state;
-    like(userId, token, id).then(data=>{if (data.error) {console.log(data.error);} else 
-    {this.setState({like: !this.state.like,likes: posts.likes.length});}})
+        const { posts }= this.state;
+        like(userId, token, id).then(data=>{if (data.error) {console.log(data.error);} else 
+        {this.setState({like: !this.state.like,likes: posts.likes.length});}})
     }
     unLikePost=(userId, token, id)=>{
-    const { posts }= this.state;
-    unlike(userId, token, id).then(data=>{if (data.error) {console.log(data.error);} else 
-    {this.setState({like: !this.state.like,likes: posts.likes.length});}})
+        const { posts }= this.state;
+        unlike(userId, token, id).then(data=>{if (data.error) {console.log(data.error);} else 
+        {this.setState({like: !this.state.like,likes: posts.likes.length});}})
     }
 
 renderPost=()=>{
-  const {status,likes,posts}=this.state;
-  return(
-    posts && posts.length > 0 ? 
-    posts.map((post,i)=>{
-      const comments = post.comments.reverse();
-      if(status !== this.state.status){
-        this.setState({likes:post.likes.length})
-        this.setState({like:this.checkLike(post.likes)})
-      }
-      console.log(JSON.stringify({status,likes}))
-      const likeToggle=()=>{
-        console.log("click like button");
-        const userId = isAuthenticated().user._id;
-        const token = isAuthenticated().token;
-        let callApi = this.state.status ? unlike : like;
-         //status ?
-         //unlike(userId,token,post._id).then(data=>{if (data.error) {console.log(data.error);} else {this.setState({status: !this.state.status,likes: post.likes.length});}})
-         //:
-         //like(userId, token,post._id).then(data=>{if (data.error) {console.log(data.error);} else{this.setState({status: !this.state.status,likes: post.likes.length});}})
-        callApi(userId, token,post._id).then(data=>{if (data.error) {console.log(data.error);} else{this.setState({status: !this.state.status,likes: post.likes.length});}})
-
-         //callApi(userId, token, post._id).then(data => { if (data.error) {console.log(data.error);} else {this.setState({like: !this.state.like,likes: data.likes.length});}});
-        
-       };
+  const {status,likes,post}=this.state;
+ 
       return (
         <div className="col-sm-12" key={i}>
         <div className="iq-card iq-card-block iq-card-stretch iq-card-height">
@@ -336,13 +314,6 @@ renderPost=()=>{
           </div>
         </div>
       </div>
-      )
-    })
-    : (
-    <div>
-      <p>No posts </p>
-    </div>
-    )
   )
 }
 
