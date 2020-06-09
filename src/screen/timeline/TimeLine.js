@@ -23,7 +23,7 @@ export default class TimeLine extends Component {
       userId:'',
       about:'',
       loadAbout:false,
-      loadEvent:false,
+      loadEvent:true,
     }
   }
 

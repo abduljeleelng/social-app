@@ -6,7 +6,7 @@ export default function TimeLineEvent() {
                     <div className="col-lg-4">
                       <div className="iq-card">
                         <div className="iq-card-body">
-                          <a href="#"><span className="badge badge-pill badge-primary font-weight-normal ml-auto mr-1"><i className="ri-star-line" /></span> 27 Items for yoou</a>
+                          <a href><span className="badge badge-pill badge-primary font-weight-normal ml-auto mr-1"><i className="ri-star-line" /></span> 27 Items for yoou</a>
                         </div>
                       </div>
                       <div className="iq-card">
@@ -28,18 +28,6 @@ export default function TimeLineEvent() {
                                 </div>
                                 <div className="iq-card-body text-center p-2">
                                   <h5>Started New Job at Apple</h5>
-                                  <p>January 24, 2019</p>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="col-sm-12">
-                              <div className="event-post position-relative">
-                                <a href="javascript:void();"><img src="images/page-img/06.jpg" alt="gallary-image" className="img-fluid rounded" /></a>
-                                <div className="job-icon-position">
-                                  <div className="job-icon bg-primary p-2 d-inline-block rounded-circle"><i className="ri-briefcase-line" /></div>
-                                </div>
-                                <div className="iq-card-body text-center p-2">
-                                  <h5>Freelance Photographer</h5>
                                   <p>January 24, 2019</p>
                                 </div>
                               </div>
