@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 
-export default function TimeLineEvent() {
+export default function TimeLineEvent({events}) {
     return (
         <Fragment>
                     <div className="col-lg-4">
@@ -20,18 +20,37 @@ export default function TimeLineEvent() {
                         </div>
                         <div className="iq-card-body">
                           <div className="row">
-                            <div className="col-sm-12">
-                              <div className="event-post position-relative">
-                                <a href="javascript:void();"><img src="images/page-img/07.jpg" alt="gallary-image" className="img-fluid rounded" /></a>
-                                <div className="job-icon-position">
-                                  <div className="job-icon bg-primary p-2 d-inline-block rounded-circle"><i className="ri-briefcase-line" /></div>
-                                </div>
-                                <div className="iq-card-body text-center p-2">
-                                  <h5>Started New Job at Apple</h5>
-                                  <p>January 24, 2019</p>
-                                </div>
+                            {
+                              events.length > 0 ? events.map((event,i)=>(
+                                <div className="col-sm-12">
+                                  <div className="event-post position-relative">
+                                    <a href><img src={event.image} alt="gallary" className="img-fluid rounded" /></a>
+                                    <div className="job-icon-position">
+                                      <div className="job-icon bg-primary p-2 d-inline-block rounded-circle"><i className="ri-briefcase-line" /></div>
+                                    </div>
+                                    <div className="iq-card-body text-center p-2">
+                                      <h5>{event.title}</h5>
+                                      <p>{event.start}</p>
+                                    </div>
+                                  </div>
                               </div>
-                            </div>
+                              ))
+                              :(
+                                <div className="col-sm-12">
+                                  <div className="event-post position-relative">
+                                    <a href><img src="images/page-img/07.jpg" alt="gallary" className="img-fluid rounded" /></a>
+                                    <div className="job-icon-position">
+                                      <div className="job-icon bg-primary p-2 d-inline-block rounded-circle"><i className="ri-briefcase-line" /></div>
+                                    </div>
+                                    <div className="iq-card-body text-center p-2">
+                                      <h5>Started New Job at Apple</h5>
+                                      <p>January 24, 2019</p>
+                                    </div>
+                                  </div>
+                              </div>
+                              )
+                            }
+                       
                           </div>
                         </div>
                       </div>
@@ -46,7 +65,7 @@ export default function TimeLineEvent() {
                         </div>
                         <div className="iq-card-body">
                           <ul className="profile-img-gallary d-flex flex-wrap p-0 m-0">
-                            <li className="col-md-4 col-6 pl-2 pr-0 pb-3"><a href="javascript:void();"><img src="images/page-img/g1.jpg" alt="gallary-image" className="img-fluid" /></a></li>
+                            <li className="col-md-4 col-6 pl-2 pr-0 pb-3"><a href="javascript:void();"><img src="images/page-img/g1.jpg" alt="gallary" className="img-fluid" /></a></li>
                           </ul>
                         </div>
                       </div>
@@ -61,13 +80,14 @@ export default function TimeLineEvent() {
                         </div>
                         <div className="iq-card-body">
                           <ul className="profile-img-gallary d-flex flex-wrap p-0 m-0">
-                            <li className="col-md-4 col-6 pl-2 pr-0 pb-3">
+                            {/*<li className="col-md-4 col-6 pl-2 pr-0 pb-3">
                               <a href="javascript:void();">
                                 <img src="images/user/05.jpg" alt="gallary-image" className="img-fluid" /></a>
                               <h6 className="mt-2">Anna Rexia</h6>
                             </li>
+                            */}
                             <li className="col-md-4 col-6 pl-2 pr-0 pb-3">
-                              <a href="javascript:void();"><img src="images/user/06.jpg" alt="gallary-image" className="img-fluid" /></a>
+                              <a href><img src="images/user/06.jpg" alt="gallary" className="img-fluid" /></a>
                               <h6 className="mt-2">Tara Zona</h6>
                             </li>
                           </ul>
