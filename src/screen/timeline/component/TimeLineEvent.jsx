@@ -70,34 +70,6 @@ export default function TimeLineEvent() {
                               <a href="javascript:void();"><img src="images/user/06.jpg" alt="gallary-image" className="img-fluid" /></a>
                               <h6 className="mt-2">Tara Zona</h6>
                             </li>
-                            <li className="col-md-4 col-6 pl-2 pr-0 pb-3">
-                              <a href="javascript:void();"><img src="images/user/07.jpg" alt="gallary-image" className="img-fluid" /></a>
-                              <h6 className="mt-2">Polly Tech</h6>
-                            </li>
-                            <li className="col-md-4 col-6 pl-2 pr-0 pb-3">
-                              <a href="javascript:void();"><img src="images/user/08.jpg" alt="gallary-image" className="img-fluid" /></a>
-                              <h6 className="mt-2">Bill Emia</h6>
-                            </li>
-                            <li className="col-md-4 col-6 pl-2 pr-0 pb-3">
-                              <a href="javascript:void();"><img src="images/user/09.jpg" alt="gallary-image" className="img-fluid" /></a>
-                              <h6 className="mt-2">Moe Fugga</h6>
-                            </li>
-                            <li className="col-md-4 col-6 pl-2 pr-0 pb-3">
-                              <a href="javascript:void();"><img src="images/user/10.jpg" alt="gallary-image" className="img-fluid" /></a>
-                              <h6 className="mt-2">Hal Appeno </h6>
-                            </li>
-                            <li className="col-md-4 col-6 pl-2 pr-0 pb-0">
-                              <a href="javascript:void();"><img src="images/user/07.jpg" alt="gallary-image" className="img-fluid" /></a>
-                              <h6 className="mt-2">Zack Lee</h6>
-                            </li>
-                            <li className="col-md-4 col-6 pl-2 pr-0 pb-0">
-                              <a href="javascript:void();"><img src="images/user/06.jpg" alt="gallary-image" className="img-fluid" /></a>
-                              <h6 className="mt-2">Terry Aki</h6>
-                            </li>
-                            <li className="col-md-4 col-6 pl-2 pr-0 pb-0">
-                              <a href="javascript:void();"><img src="images/user/05.jpg" alt="gallary-image" className="img-fluid" /></a>
-                              <h6 className="mt-2">Greta Life</h6>
-                            </li>
                           </ul>
                         </div>
                       </div>
