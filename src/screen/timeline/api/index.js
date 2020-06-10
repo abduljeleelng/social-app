@@ -18,9 +18,6 @@ export const user = (userId)=>{
 };
 
 export const update = (userId,token,aboutme) =>{
-    
-    console.log(JSON.stringify(aboutme))
-
     return fetch(`${API}/user/${userId}`,
     {method:"PUT",
     headers:{

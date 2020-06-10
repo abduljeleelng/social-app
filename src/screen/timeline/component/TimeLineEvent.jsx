@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react'
 
-export default function TimeLineEvent({events}) {
+export default function TimeLineEvent({events,photos}) {
     return (
         <Fragment>
                     <div className="col-lg-4">
                       <div className="iq-card">
                         <div className="iq-card-body">
-                          <a href><span className="badge badge-pill badge-primary font-weight-normal ml-auto mr-1"><i className="ri-star-line" /></span> 27 Items for yoou</a>
+                          <a href><span className="badge badge-pill badge-primary font-weight-normal ml-auto mr-1"><i className="ri-star-line" /></span> {events.length} Events for you</a>
                         </div>
                       </div>
                       <div className="iq-card">
@@ -64,9 +64,21 @@ export default function TimeLineEvent({events}) {
                           </div>
                         </div>
                         <div className="iq-card-body">
-                          <ul className="profile-img-gallary d-flex flex-wrap p-0 m-0">
-                            <li className="col-md-4 col-6 pl-2 pr-0 pb-3"><a href="javascript:void();"><img src="images/page-img/g1.jpg" alt="gallary" className="img-fluid" /></a></li>
-                          </ul>
+                          {
+                            
+                              <ul className="profile-img-gallary d-flex flex-wrap p-0 m-0">
+                                {
+
+                                  photos.length >0 ? photos.map((photo,i)=>(
+                                    <li className="col-md-4 col-6 pl-2 pr-0 pb-3" key={i}><a href><img src={photo.image} alt="gallary" className="img-fluid" /></a></li>
+                                  ))
+                                  :(
+                                    <li className="col-md-4 col-6 pl-2 pr-0 pb-3"><a href><img src="" alt="gallary" className="img-fluid" /></a></li>
+                                  )
+                                }
+                              </ul>
+                          }
+                     
                         </div>
                       </div>
                       <div className="iq-card">

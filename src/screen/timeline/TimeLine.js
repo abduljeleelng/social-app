@@ -40,7 +40,25 @@ export default class TimeLine extends Component {
           "start":"06 - 09-2020",
           "image":"https://upload.wikimedia.org/wikipedia/commons/1/13/Benedict_Cumberbatch_2011.png"
         }
-      ]
+      ],
+      photos:[
+        {
+          "title":"Developer At Unitech Global",
+          "start":"06 - 09-2020",
+          "image":"https://upload.wikimedia.org/wikipedia/commons/1/13/Benedict_Cumberbatch_2011.png"
+        },
+        {
+          "title":"Developer At Unitech Global",
+          "start":"06 - 09-2020",
+          "image":"https://upload.wikimedia.org/wikipedia/commons/1/13/Benedict_Cumberbatch_2011.png"
+        },
+        {
+          "title":"Developer At Unitech Global",
+          "start":"06 - 09-2020",
+          "image":"https://upload.wikimedia.org/wikipedia/commons/1/13/Benedict_Cumberbatch_2011.png"
+        }
+      ],
+      friends:[],
     }
   }
 
@@ -78,7 +96,7 @@ export default class TimeLine extends Component {
     }
   }
   render() {
-    const {user,posts,loadPosts,about,loadAbout,loadEvent,events}= this.state;
+    const {user,posts,loadPosts,about,loadAbout,loadEvent,events,photos,friends}= this.state;
     //friends
     //console.log(JSON.stringify({about,loadAbout}))
     //const friends = about.friends.length;
@@ -182,7 +200,7 @@ export default class TimeLine extends Component {
                 <div className="iq-card-body p-0">
                   <div className="row">
                     <ReactPlaceholder showLoadingAnimation  type='media' rows={2} ready={loadEvent}>
-                      <TimeLineEvent events={events} />
+                      <TimeLineEvent events={events} photos={photos} friends={friends} />
                     </ReactPlaceholder>
                     {/*
                     <div className="col-lg-4">
