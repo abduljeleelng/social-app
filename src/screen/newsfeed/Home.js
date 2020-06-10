@@ -26,6 +26,11 @@ export default class Home extends Component {
           
         }
     }
+
+    updatePosts = posts =>{
+        this.setState({posts})
+    }
+
     componentDidMount(){
         this.setState({user:isAuthenticated().user});
         posts().then(posts=>{
@@ -54,7 +59,7 @@ export default class Home extends Component {
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-8 row m-0 p-0">
-                                <Create user={user} />
+                                <Create user={user} updatePosts={this.updatePosts} />
                                 <ReactPlaceholder showLoadingAnimation  rows={7} ready={loadPost}>
                                     <Post posts={posts} />
                                 </ReactPlaceholder>

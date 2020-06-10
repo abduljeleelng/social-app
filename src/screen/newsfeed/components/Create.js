@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import profileIcon from '../img/profileIcon.png'
 import { profilePhoto } from '../../timeline/api';
 import { isAuthenticated } from '../../../auth';
-import { newPost } from '../api';
+import { newPost,posts } from '../api';
 //import { Redirect } from 'react-router-dom';
 
 export default class Create extends Component {
@@ -36,12 +36,22 @@ export default class Create extends Component {
     this.setState({loading:false})
     const token = isAuthenticated().token;
     const userId = isAuthenticated().user._id;
+    console.log(JSON.stringify({userId,token}))
     newPost(userId,token,this.postData).then(data=>{
-      if(data.result){
-        alert("Post successfull");
-        this.setState({loading:false,body:'',photo:'',reload:true})
-      }else
-      {
+      //console.log(data)
+      if(data){
+        //alert("Post successfull");
+        posts().then(posts=>{
+          console.log(JSON.stringify(posts))
+          if(posts.error){
+            console.log(JSON.stringify(posts));
+          }else{
+            this.props.updatePosts(posts);
+            this.setState({loading:false,body:'',photo:''});
+          }
+        });
+        this.setState({loading:false,body:'',photo:''})
+      }else{
         alert("Posting error");
         this.setState({loading:false})
       }
