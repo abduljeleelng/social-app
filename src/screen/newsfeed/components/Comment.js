@@ -42,7 +42,7 @@ export default class Comment extends Component {
                 }else{
                     alert("comment was successful");
                     posts().then(posts=>{
-                        console.log(JSON.stringify(posts));
+                        //console.log(JSON.stringify(posts));
                         this.setState({loading:false});
                         if(posts.error){
                           console.log(JSON.stringify(posts));

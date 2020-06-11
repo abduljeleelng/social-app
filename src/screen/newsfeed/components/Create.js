@@ -30,22 +30,17 @@ export default class Create extends Component {
   }
    handleCreatePost=e=>{
     e.preventDefault();
-    this.setState({loading:false})
+    this.setState({loading:true})
     const token = isAuthenticated().token;
     const userId = isAuthenticated().user._id;
-    
     newPost(userId,token,this.postData).then(data=>{
-      //console.log(data)
       if(data.result){
-        //alert("Post successfull");
+        alert("Post successfull");
+        this.setState({loading:false});
         posts().then(posts=>{
-          console.log(JSON.stringify(posts))
-          if(posts.error){
-            console.log(JSON.stringify(posts));
-          }else{
+            //console.log(JSON.stringify(posts))
             this.props.updatePosts(posts);
             this.setState({loading:false,body:'',photo:''});
-          }
         });
         this.setState({loading:false,body:'',photo:''})
       }else{

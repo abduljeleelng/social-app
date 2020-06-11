@@ -23,14 +23,12 @@ export default class Home extends Component {
             bMonth:'',
             user:'',
             posts:[],
-          
+            comes:[],
         }
     }
-
-    updatePosts = posts =>{
-        this.setState({posts})
+    updatePosts=posts=>{
+        this.setState({posts});
     }
-
     componentDidMount(){
         this.setState({user:isAuthenticated().user});
         posts().then(posts=>{
@@ -48,7 +46,6 @@ export default class Home extends Component {
             if(data === undefined) return console.log("networ | server Error");
             this.setState({bMonth:data,loadBMonth:true});
         });
-
     }
     render() {
         const {loadPost,loadStory,loadEvent,loadBirth,user,posts,birth,bMonth,loadBMonth}=this.state;

@@ -50,6 +50,11 @@ export default class Post extends Component{
     const posts = this.props.posts;
     this.setState({posts});
   }
+  componentDidUpdate(prevProps){
+    if (prevProps.posts !== this.props.posts) {
+      this.setState({posts:this.props.posts});
+    }
+  }
   updatePosts=posts=>{
     this.setState({posts});
   }
