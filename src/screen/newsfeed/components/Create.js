@@ -21,9 +21,6 @@ export default class Create extends Component {
  
   componentDidMount(){
     this.postData = new FormData();
-    //this.setState({ user:isAuthenticated().user });
-    //const userId = isAuthenticated().user._id;
-    //if(!userId){this.setState({reDirect:true});}
   }
   handleChange=name=>event=>{
     this.setState({ error: "" });
