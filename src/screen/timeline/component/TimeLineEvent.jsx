@@ -81,6 +81,7 @@ export default function TimeLineEvent({events,photos}) {
                      
                         </div>
                       </div>
+                      {/*
                       <div className="iq-card">
                         <div className="iq-card-header d-flex justify-content-between">
                           <div className="iq-header-title">
@@ -92,12 +93,12 @@ export default function TimeLineEvent({events,photos}) {
                         </div>
                         <div className="iq-card-body">
                           <ul className="profile-img-gallary d-flex flex-wrap p-0 m-0">
-                            {/*<li className="col-md-4 col-6 pl-2 pr-0 pb-3">
+                            <li className="col-md-4 col-6 pl-2 pr-0 pb-3">
                               <a href="javascript:void();">
                                 <img src="images/user/05.jpg" alt="gallary-image" className="img-fluid" /></a>
                               <h6 className="mt-2">Anna Rexia</h6>
                             </li>
-                            */}
+                            
                             <li className="col-md-4 col-6 pl-2 pr-0 pb-3">
                               <a href><img src="images/user/06.jpg" alt="gallary" className="img-fluid" /></a>
                               <h6 className="mt-2">Tara Zona</h6>
@@ -105,6 +106,7 @@ export default function TimeLineEvent({events,photos}) {
                           </ul>
                         </div>
                       </div>
+                      */}
                     </div>
         </Fragment>
     )
