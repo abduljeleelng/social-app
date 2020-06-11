@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { isAuthenticated } from '../../../auth';
-import { comment, uncomment } from '../api';
+import { comment, uncomment, posts } from '../api';
 
 export default class Comment extends Component {
     state = {
         text: "",
-        error: ""
+        error: "",
+        loading:false,
     };
 
     handleChange = event => {
@@ -31,6 +32,7 @@ export default class Comment extends Component {
             return false;
         }
         if (this.isValid()) {
+            this.setState({loading:true});
             const userId = isAuthenticated().user._id;
             const token = isAuthenticated().token;
             const postId = this.props.postId;
@@ -39,15 +41,19 @@ export default class Comment extends Component {
                     alert("error in posting comment ");
                 }else{
                     alert("comment was successful");
+                    posts().then(posts=>{
+                        console.log(JSON.stringify(posts));
+                        this.setState({loading:false});
+                        if(posts.error){
+                          console.log(JSON.stringify(posts));
+                        }else{
+                          this.props.updatePosts(posts);
+                          this.setState({loading:false,body:'',photo:'',});
+                        }
+                      });
                     this.setState({text:""})
-                    window.location.reload();
                 }
-                //console.log(JSON.stringify(data));
-            })
-                    //if (data.error) {console.log(data.error);} else {this.setState({ text: "" });
-                        // dispatch fresh list of coments to parent (SinglePost) 
-                      //  this.props.updateComments(data.comments);}
-               
+            })           
         }
     };
 
@@ -75,7 +81,7 @@ export default class Comment extends Component {
 
     render() {
        // const { comments } = this.props;
-       // const { error } = this.state;
+       const { loading } = this.state;
         return (
             <form className="comment-text d-flex align-items-center mt-3">
                 <textarea 
@@ -86,7 +92,10 @@ export default class Comment extends Component {
                 value={this.state.text} 
                 className="form-control rounded" ></textarea>
                 <div className="comment-attagement d-flex">
-                <i onClick={this.addComment} className="dripicons-direction mr-3" />
+                {
+                    loading ? ("posting...."):
+                    <i onClick={this.addComment} className="dripicons-direction mr-3" />
+                }
                 </div>
             </form>
         )
