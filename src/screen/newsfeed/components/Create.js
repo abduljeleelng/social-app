@@ -36,10 +36,10 @@ export default class Create extends Component {
     this.setState({loading:false})
     const token = isAuthenticated().token;
     const userId = isAuthenticated().user._id;
-    console.log(JSON.stringify({userId,token}))
+    
     newPost(userId,token,this.postData).then(data=>{
       //console.log(data)
-      if(data){
+      if(data.result){
         //alert("Post successfull");
         posts().then(posts=>{
           console.log(JSON.stringify(posts))
