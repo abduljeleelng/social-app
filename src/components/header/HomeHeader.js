@@ -19,7 +19,7 @@ export default function HomeHeader() {
       <div className="iq-search-bar">
         <form action="#" className="searchbox">
           <input type="text" className="text search-input" placeholder="Type here to search..." />
-          <a className="search-link" href="fake"><i className="ri-search-line" /></a>
+          <a className="search-link" href><i className="ri-search-line" /></a>
         </form>
       </div>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
@@ -31,7 +31,7 @@ export default function HomeHeader() {
             <a href="profile.html" className="iq-waves-effect d-flex align-items-center">
               <img src="images/user/1.jpg" className="img-fluid rounded-circle mr-3" alt="user" />
               <div className="caption">
-                <h6 className="mb-0 line-height">Bni Cyst</h6>
+                <h6 className="mb-0 line-height">Yusuff Abduljeleel</h6>
               </div>
             </a>
           </li>

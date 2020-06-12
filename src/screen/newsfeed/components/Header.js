@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import profileIcon from '../img/profileIcon.png'
 //import { photoAPI } from '../api';
 import { profilePhoto } from '../../timeline/api';
+import {signout} from '../../../auth'
 //import { Container, Row, Col, Input } from 'reactstrap'
 
 export default function HomeHeader({user}) {
@@ -53,8 +54,8 @@ export default function HomeHeader({user}) {
                   <div className="bg-primary p-3">
                     <h5 className="mb-0 text-white">Friend Request <small className="badge  badge-light float-right pt-1"> 30 </small></h5>
                   </div>
-                  
-                  <div className="iq-friend-request">
+
+               {/*   <div className="iq-friend-request">
                     <div className="iq-sub-card iq-sub-card-big d-flex align-items-center justify-content-between">
                       <div className="d-flex align-items-center">
                         <div className="">
@@ -70,10 +71,10 @@ export default function HomeHeader({user}) {
                         <i  className="mr-3 btn btn-secondary rounded">Delete Request</i>
                       </div>
                     </div>
-                  </div>
+                  </div>*/}
           
                   <div className="text-center">
-                    <a href="fake" className="mr-3 btn text-primary">View More Request</a>
+                    <Link to="/" className="mr-3 btn text-primary">View More Request</Link>
                   </div>
                 </div>
               </div>
@@ -90,13 +91,13 @@ export default function HomeHeader({user}) {
                   <div className="bg-primary p-3">
                     <h5 className="mb-0 text-white">All Notifications<small className="badge  badge-light float-right pt-1">30</small></h5>
                   </div>
-                  <Link to={`/${`users`}`} className="iq-sub-card">
+                  <Link to={`/${user._id}`} className="iq-sub-card">
                     <div className="media align-items-center">
                       <div className="">
-                        <img className="avatar-40 rounded" src="images/user/01.jpg" alt="user" />
+                        <img className="avatar-40 rounded" src="images/user/01.jpg" alt="" />
                       </div>
                       <div className="media-body ml-3">
-                        <h6 className="mb-0 ">Emma Watson Bni</h6>
+                        <h6 className="mb-0 ">{user.firstName}</h6>
                         <small className="float-right font-size-12">Just Now</small>
                         <p className="mb-0">95 MB</p>
                       </div>
@@ -120,10 +121,10 @@ export default function HomeHeader({user}) {
                   <Link to="/" className="iq-sub-card">
                     <div className="media align-items-center">
                       <div className="">
-                        <img className="avatar-40 rounded" src="images/user/01.jpg" alt="fake"/>
+                        <img className="avatar-40 rounded" src="images/user/01.jpg" alt=""/>
                       </div>
                       <div className="media-body ml-3">
-                        <h6 className="mb-0 ">Bni Emma Watson</h6>
+                        <h6 className="mb-0 ">{user.firstName}</h6>
                         <small className="float-left font-size-12">13 Jun</small>
                       </div>
                     </div>
@@ -135,28 +136,28 @@ export default function HomeHeader({user}) {
         </ul>
         <ul className="navbar-list">
           <li>
-            <a href="fake" className="search-toggle iq-waves-effect d-flex align-items-center">
+            <a href className="search-toggle iq-waves-effect d-flex align-items-center">
               <i className="ri-arrow-down-s-fill" />
             </a>
             <div className="iq-sub-dropdown iq-user-dropdown">
               <div className="iq-card shadow-none m-0">
                 <div className="iq-card-body p-0 ">
                   <div className="bg-primary p-3 line-height">
-                    <h5 className="mb-0 text-white line-height">Hello Bni Cyst</h5>
+                    <h5 className="mb-0 text-white line-height">Hello {user.firstName}</h5>
                     <span className="text-white font-size-12">Available</span>
                   </div>
-                  <a href="profile" className="iq-sub-card iq-bg-primary-hover">
+                  <Link to={`/${user._id}`} className="iq-sub-card iq-bg-primary-hover">
                     <div className="media align-items-center">
                       <div className="rounded iq-card-icon iq-bg-primary">
                         <i className="ri-file-user-line" />
                       </div>
                       <div className="media-body ml-3">
                         <h6 className="mb-0 ">My Profile</h6>
-                        <p className="mb-0 font-size-12">View personal profile details.</p>
+                       {/* <p className="mb-0 font-size-12">View personal profile details.</p>*/}
                       </div>
                     </div>
-                  </a>
-                  <a href="profile" className="iq-sub-card iq-bg-warning-hover">
+                  </Link>
+                  <Link to="/user/setting" className="iq-sub-card iq-bg-warning-hover">
                     <div className="media align-items-center">
                       <div className="rounded iq-card-icon iq-bg-warning">
                         <i className="ri-profile-line" />
@@ -166,8 +167,9 @@ export default function HomeHeader({user}) {
                         <p className="mb-0 font-size-12">Modify your personal details.</p>
                       </div>
                     </div>
-                  </a>
-                  <a href="account" className="iq-sub-card iq-bg-info-hover">
+                  </Link>
+              { /*
+                 <a href="account" className="iq-sub-card iq-bg-info-hover">
                     <div className="media align-items-center">
                       <div className="rounded iq-card-icon iq-bg-info">
                         <i className="ri-account-box-line" />
@@ -189,8 +191,9 @@ export default function HomeHeader({user}) {
                       </div>
                     </div>
                   </a>
+                  */}
                   <div className="d-inline-block w-100 text-center p-3">
-                    <a className="bg-primary iq-sign-btn" href="sign-in" role="button">Sign out<i className="ri-login-box-line ml-2" /></a>
+                    <button className="bg-primary iq-sign-btn" onClick={signout} >Sign out<i className="ri-login-box-line ml-2" /></button>
                   </div>
                 </div>
               </div>
