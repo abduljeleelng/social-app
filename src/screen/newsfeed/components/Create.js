@@ -39,8 +39,8 @@ export default class Create extends Component {
         this.setState({loading:false});
         posts().then(posts=>{
             //console.log(JSON.stringify(posts))
-            this.props.updatePosts(posts);
-            this.setState({loading:false,body:'',photo:''});
+          this.props.updatePosts(posts);
+          this.setState({loading:false,body:'',photo:''});
         });
         this.setState({loading:false,body:'',photo:''})
       }else{
