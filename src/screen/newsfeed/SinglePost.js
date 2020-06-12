@@ -345,12 +345,16 @@ export default class SinglePost extends Component {
                                 </ReactPlaceholder>
                             </div>
                             <div className="col-lg-4">
-                                <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={loadStory}>
+                               {
+                               /* 
+                               <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={loadStory}>
                                     <Story />
                                 </ReactPlaceholder>
                                 <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={loadEvent}>
                                     <Event />
                                 </ReactPlaceholder>
+                                */
+                                }
                                 <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={loadBirth}>
                                     <Birthday b={birth} />
                                 </ReactPlaceholder>
