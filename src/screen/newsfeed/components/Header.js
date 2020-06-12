@@ -7,9 +7,9 @@ import {signout} from '../../../auth'
 //import { Container, Row, Col, Input } from 'reactstrap'
 
 export default function HomeHeader({user}) {
-  const [redirect, setRedirect] = useState(false);
+  //const [signa, setSigna] = useState(false);
   //console.log(JSON.stringify({user,profile:"user details"}));
-  if(redirect) return <Redirect to="/" />;
+  //if(signa) return <Redirect to="/" />;
     return (
       <Fragment>
         {profilePhoto}
@@ -195,7 +195,9 @@ export default function HomeHeader({user}) {
                   </a>
                   */}
                   <div className="d-inline-block w-100 text-center p-3">
-                    <button className="bg-primary iq-sign-btn" onClick={signout(()=>{setRedirect(false) })} >Sign out<i className="ri-login-box-line ml-2" /></button>
+                    <button className="bg-primary iq-sign-btn" onClick={``
+                      //signout(()=>{})
+                      } >Sign out<i className="ri-login-box-line ml-2" /></button>
                   </div>
                 </div>
               </div>
