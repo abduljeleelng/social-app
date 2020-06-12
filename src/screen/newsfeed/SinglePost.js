@@ -336,7 +336,7 @@ export default class SinglePost extends Component {
                     <div className="container">
                         <div className="row">  
                             <div className="col-lg-8 row m-0 p-0">
-                                <Create user={user} />
+                                {/*<Create user={user} updatePost={} /> */}
                                 <ReactPlaceholder showLoadingAnimation rows={7} ready={loadPost}>
                                     {
                                         post && post !== "" ?
