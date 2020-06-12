@@ -322,10 +322,7 @@ export default class TimeLine extends Component {
                   </div>
                 </div>
               </div>
-
-              <ReactPlaceholder showLoadingAnimation type='media' rows={7} ready={loadAbout}>
-                <Abouts about={about} />
-              </ReactPlaceholder>
+              <Abouts about={about} />
               <FriendList about={about} />
               <Photos photo={``} />
              
