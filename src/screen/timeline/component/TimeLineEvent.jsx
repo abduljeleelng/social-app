@@ -24,7 +24,7 @@ export default function TimeLineEvent({events,photos}) {
                               events.length > 0 ? events.map((event,i)=>(
                                 <div className="col-sm-12">
                                   <div className="event-post position-relative">
-                                    <a href><img src={event.image} alt="gallary" className="img-fluid rounded" /></a>
+                                    <a href><img src={event.image} alt="" className="img-fluid rounded" /></a>
                                     <div className="job-icon-position">
                                       <div className="job-icon bg-primary p-2 d-inline-block rounded-circle"><i className="ri-briefcase-line" /></div>
                                     </div>
@@ -38,13 +38,12 @@ export default function TimeLineEvent({events,photos}) {
                               :(
                                 <div className="col-sm-12">
                                   <div className="event-post position-relative">
-                                    <a href><img src="images/page-img/07.jpg" alt="gallary" className="img-fluid rounded" /></a>
+                                    <a href><img src="images/page-img/07.jpg" alt="" className="img-fluid rounded" /></a>
                                     <div className="job-icon-position">
                                       <div className="job-icon bg-primary p-2 d-inline-block rounded-circle"><i className="ri-briefcase-line" /></div>
                                     </div>
                                     <div className="iq-card-body text-center p-2">
-                                      <h5>Started New Job at Apple</h5>
-                                      <p>January 24, 2019</p>
+                                      <h5>You don't have any event, create an event </h5>
                                     </div>
                                   </div>
                               </div>
@@ -60,7 +59,7 @@ export default function TimeLineEvent({events,photos}) {
                             <h4 className="card-title">Photos</h4>
                           </div>
                           <div className="iq-card-header-toolbar d-flex align-items-center">
-                            <p className="m-0"><a href="javacsript:void();">Add Photo </a></p>
+                            {/*<p className="m-0"><a href="javacsript:void();">Add Photo </a></p>*/}
                           </div>
                         </div>
                         <div className="iq-card-body">
@@ -68,12 +67,11 @@ export default function TimeLineEvent({events,photos}) {
                             
                               <ul className="profile-img-gallary d-flex flex-wrap p-0 m-0">
                                 {
-
                                   photos.length >0 ? photos.map((photo,i)=>(
                                     <li className="col-md-4 col-6 pl-2 pr-0 pb-3" key={i}><a href><img src={photo.image} alt="gallary" className="img-fluid" /></a></li>
                                   ))
                                   :(
-                                    <li className="col-md-4 col-6 pl-2 pr-0 pb-3"><a href><img src="" alt="gallary" className="img-fluid" /></a></li>
+                                    <li className="col-md-4 col-6 pl-2 pr-0 pb-3">No Images visible here</li>
                                   )
                                 }
                               </ul>

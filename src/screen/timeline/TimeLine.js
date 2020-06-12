@@ -24,13 +24,7 @@ export default class TimeLine extends Component {
       about:'',
       loadAbout:false,
       loadEvent:true,
-      events:[
-        {
-          "title":"Developer At Unitech Global",
-          "start":"06 - 09-2020",
-          "image":"https://upload.wikimedia.org/wikipedia/commons/1/13/Benedict_Cumberbatch_2011.png"
-        }
-      ],
+      events:[],
       photos:[
         {
           "title":"Developer At Unitech Global",
