@@ -68,7 +68,7 @@ export default function TimeLineEvent({events,photos}) {
                               <ul className="profile-img-gallary d-flex flex-wrap p-0 m-0">
                                 {
                                   photos.length >0 ? photos.map((photo,i)=>(
-                                    <li className="col-md-4 col-6 pl-2 pr-0 pb-3" key={i}><a href><img src={photo.image} alt="gallary" className="img-fluid" /></a></li>
+                                    <li className="col-md-4 col-6 pl-2 pr-0 pb-3" key={i}><a href><img src={photo.photo} alt="" className="img-fluid" /></a></li>
                                   ))
                                   :(
                                     <li className="col-md-4 col-6 pl-2 pr-0 pb-3">No Image here</li>

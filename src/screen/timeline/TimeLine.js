@@ -10,7 +10,7 @@ import { Create,Header,Post} from '../newsfeed/components';
 import { TimeLineEvent, Abouts, FriendList,Photos} from './component';
 import { isAuthenticated } from '../../auth';
 import { postBy } from '../newsfeed/api';
-import { profilePhoto,user } from './api';
+import { profilePhoto,user,imageList} from './api';
 
 
 export default class TimeLine extends Component {
@@ -60,6 +60,10 @@ export default class TimeLine extends Component {
     user(userId).then(data=>{
       if(data.error){return console.log(data.error)}
       this.setState({about:data,loadAbout:true})
+    })
+    imageList(userId).then(data=>{
+      this.setState({photos:data.posts})
+      console.log(JSON.stringify(data.posts))
     })
   }
   componentDidUpdate(preProps){

@@ -56,6 +56,13 @@ export const updateStatus = (userId,token,aboutme) =>{
 .then(response=>{return response.json();})
 .catch(error=>console.log(error))
 };
-
 //export const photoAPI =(userId)=> `${API}/user/photo/${userId}`;
 export const profilePhoto = `${API}/user/photo/`;
+export const imageList = userId => {
+    return fetch(`${API}/posts/photo/list/${userId}`,
+    {
+        method:"GET"
+    })
+    .then(response=>{return response.json();})
+    .catch(error=>console.log(error))
+};

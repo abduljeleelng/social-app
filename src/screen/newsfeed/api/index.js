@@ -31,6 +31,8 @@ export const newPost = (userId,token,post) =>{
 
 export const photoAPI = `${API}/posts/photo`;
 
+
+
 export const singlePost = (postId)=>{
     return fetch(`${API}/post/${postId}`,{method:"GET"})
     .then(response=>{
