@@ -24,24 +24,14 @@ export default class TimeLine extends Component {
       about:'',
       loadAbout:false,
       loadEvent:true,
-      events:[],
-      photos:[
-        {
-          "title":"Developer At Unitech Global",
-          "start":"06 - 09-2020",
-          "image":"https://upload.wikimedia.org/wikipedia/commons/1/13/Benedict_Cumberbatch_2011.png"
-        },
-        {
-          "title":"Developer At Unitech Global",
-          "start":"06 - 09-2020",
-          "image":"https://upload.wikimedia.org/wikipedia/commons/1/13/Benedict_Cumberbatch_2011.png"
-        },
+      events:[
         {
           "title":"Developer At Unitech Global",
           "start":"06 - 09-2020",
           "image":"https://upload.wikimedia.org/wikipedia/commons/1/13/Benedict_Cumberbatch_2011.png"
         }
       ],
+      photos:[],
       friends:[],
     }
   }
@@ -62,8 +52,8 @@ export default class TimeLine extends Component {
       this.setState({about:data,loadAbout:true})
     })
     imageList(userId).then(data=>{
-      this.setState({photos:data.posts})
-      console.log(JSON.stringify(data.posts))
+      console.log(JSON.stringify(data))
+      //this.setState({photos:data.posts})
     })
   }
   componentDidUpdate(preProps){
@@ -86,7 +76,7 @@ export default class TimeLine extends Component {
   render() {
     const {user,posts,loadPosts,about,loadAbout,loadEvent,events,photos,friends}= this.state;
     //friends
-    //console.log(JSON.stringify({about,loadAbout}))
+    //console.log(JSON.stringify({photos}))
     //const friends = about.friends.length;
     ///console.log(JSON.stringify({friends,loadAbout}))
     return (
