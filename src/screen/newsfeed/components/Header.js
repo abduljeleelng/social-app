@@ -7,13 +7,17 @@ import {signout} from '../../../auth'
 //import { Container, Row, Col, Input } from 'reactstrap'
 
 export default function HomeHeader({user}) {
-  //const [signa, setSigna] = useState(false);
+  const [signa, setSigna] = useState(false);
   //console.log(JSON.stringify({user,profile:"user details"}));
   const handleSignout=()=>{
     console.log("Triger Signout ");
-    signout(()=>{window.location.reload()})
+    signout(()=>{
+      setSigna(true)
+      //window.location.reload()
+      //return <Redirect to="/" />
+    })
   }
-  //if(signa) return <Redirect to="/" />;
+  if(signa) return <Redirect to="/" />;
 
     return (
       <Fragment>
