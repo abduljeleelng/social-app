@@ -111,8 +111,19 @@ export default function Create() {
                 <p>Sign in  <Link to="/">click here</Link> </p> 
         
                 </Col-6>
+                <br />
+                <br />
             </Row>
             </Col>
+            <br />
+                <br />
+                <br />                <br />
+                <br />
+                <br />                <br />
+                <br />
+                <br />                <br />
+                <br />
+                <br />
             </Row>
         </Container>
     )
