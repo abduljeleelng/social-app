@@ -75,14 +75,12 @@ export default function Header() {
                 })
             }
             //return authenticate(data,()=>{ this.setState({user:data.user,redirecTo:true,email:"",password:"",loading:false}); })}
-            console.log(JSON.stringify(data))
+            //console.log(JSON.stringify(data))
             return authenticate(data,()=>setValues({...values,email:'',password:'',redirect:true,loading:false}));
         })
     }
 
     if(redirect) return <Redirect to="/"  />
-
-
 
     return (
         <Fragment>
