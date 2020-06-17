@@ -26,7 +26,7 @@ export default function Header() {
             Swal.fire({
                 icon: 'error',
                 title: 'Please, enter email and password',
-                footer: '<a href>Having any issue : call 08037358707</a>',
+                //footer: '<a href>Having any issue : call 08037358707</a>',
                 showClass: {
                     popup: 'animate__animated animate__fadeInDown'
                 },
