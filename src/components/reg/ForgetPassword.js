@@ -109,6 +109,14 @@ export default function Create() {
                 <h2 className='text-danger' style={{padding:0}}> {error}</h2>
                 {signupForm()}
                 <p>Sign in  <Link to="/">click here</Link> </p> 
+
+                <br />
+                <br />   <br />
+                <br />   <br />
+                <br />   <br />
+                <br />   <br />
+                <br />   <br />
+                <br />
         
                 </Col-6>
                 <br />
