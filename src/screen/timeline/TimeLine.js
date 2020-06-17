@@ -26,9 +26,12 @@ export default class TimeLine extends Component {
       loadEvent:true,
       events:[
         {
-          "title":"Developer At Unitech Global",
-          "start":"06 - 09-2020",
-          "image":"https://upload.wikimedia.org/wikipedia/commons/1/13/Benedict_Cumberbatch_2011.png"
+          /**
+           *           "title":"Developer At Unitech Global",
+            *           "start":"06 - 09-2020",
+            *            "image":"https://upload.wikimedia.org/wikipedia/commons/1/13/Benedict_Cumberbatch_2011.png"
+           */
+
         }
       ],
       photos:[],
@@ -52,7 +55,7 @@ export default class TimeLine extends Component {
       this.setState({about:data,loadAbout:true})
     })
     imageList(userId).then(data=>{
-      console.log(JSON.stringify(data))
+      //console.log(JSON.stringify(data))
       //this.setState({photos:data.posts})
     })
   }
