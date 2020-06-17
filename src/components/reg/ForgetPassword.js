@@ -39,7 +39,7 @@ export default function Create() {
                 Swal.fire({
                     icon: 'success',
                     title: data.message,
-                    footer: '<a href>Having any issue : call 08037358707</a>',
+                    //footer: '<a href>Having any issue : call 08037358707</a>',
                     showClass: {
                         popup: 'animate__animated animate__fadeInDown'
                     },
