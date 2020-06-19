@@ -3,8 +3,13 @@ import { Container, Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
+    const style = {
+        position:"fixed",                 
+        bottom:0, 
+        width:"100%",                     
+    }
     return (
-        <footer>
+        <footer style={style} >
             <Container>
                 <hr />
                 <Row>
