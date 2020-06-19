@@ -6,7 +6,7 @@ export default function Footer() {
     const style = {
         position:"fixed",                 
         bottom:0, 
-        width:"100%",                     
+        width:"100%",                   
     }
     return (
         <footer style={style} >

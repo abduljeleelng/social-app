@@ -81,10 +81,13 @@ export default function Header() {
     }
 
     if(redirect) return <Redirect to="/"  />
+    const style={
+        opacity:0.9,
+    }
 
     return (
         <Fragment>
-            <Row className="fixed header" >
+            <Row className="fixed header" style={style} >
                 <Container
                 >
                     <Row>
