@@ -74,9 +74,7 @@ export default function Create() {
             }
         })
     }
-    const style={
-        marginBottom:100,
-    }
+
     const signupForm = ()=>(
         <Form className="regBox">
         <Row form>
