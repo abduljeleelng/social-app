@@ -27,7 +27,7 @@ export default class Prayer extends Component {
                 <SignInHeader />
                 <Container >
                 <Row>
-                    <Col xs="12" md="12" sm="12" lg="12" xl="12"  className="center" style={{marginTop:10, backgroundColor:'#000',padding:4,borderRadius:20,opacity:0.9,boxShadow:1,}}>
+                    <Col xs="12" md="12" sm="12" lg="12" xl="12"  className="center" style={{marginTop:10, marginBottom:100, backgroundColor:'#000',padding:4,borderRadius:20,opacity:0.9,boxShadow:1,}}>
                         <h1 style={{alignContent:"center",margin:0}}>Iamacatholic Prayers Requests</h1>
                         <img src={prayer} className="img-fluid" alt="catho"  />
                     <p className="center" style={{fontSize:20}}>

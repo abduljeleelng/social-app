@@ -74,6 +74,9 @@ export default function Create() {
             }
         })
     }
+    const style={
+        marginBottom:100,
+    }
     const signupForm = ()=>(
         <Form className="regBox">
         <Row form>
@@ -101,7 +104,7 @@ export default function Create() {
             <Col-6>
             </Col-6>
             <Col>
-            <Row className="float-right regBox" style={{margin:20, marginBottom:50, backgroundColor:'#000',padding:20,borderRadius:20,opacity:0.9,boxShadow:1}}>
+            <Row className="float-right regBox" style={{margin:20, marginBottom:100, backgroundColor:'#000',padding:20,borderRadius:20,opacity:0.9,boxShadow:1}}>
                 <Col-6 md="12" xs="12" xl="12" className="regBox" >
                 <h2 className='text-success' style={{padding:10}}> Reset Password Request !</h2>
                 <hr />
