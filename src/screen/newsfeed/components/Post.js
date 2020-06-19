@@ -74,7 +74,7 @@ export default class Post extends Component{
                     <img className="rounded-circle img-fluid" src={`${profilePhoto}${post.postedBy._id}`} onError={i=>i.target.src=`${profileIcon}`} alt="user" />
                   </div>
                   <div className="media-support-info mt-2">
-                    <h5 className="mb-0 d-inline-block"><Link to={`/${post.postedBy._id}`} className> {post.postedBy.firstName} {post.postedBy.lastName}</Link></h5>
+                    <h5 className="mb-0 d-inline-block"><Link to={`/${post.postedBy._id}`} className="alignLeft"> {post.postedBy.firstName} {post.postedBy.lastName}</Link></h5>
                     <p className="mb-0 d-inline-block"></p>
                     <p className="mb-0 text-primary">{timeAgo(new Date(post.created).getTime())}</p>
                   </div>

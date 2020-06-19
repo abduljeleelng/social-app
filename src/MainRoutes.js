@@ -2,6 +2,7 @@ import React from 'react';
 import {Switch,Route} from 'react-router-dom';
 import {Activate,Reset,Forget,Home,About,Prayer,Privacy,Term,Help,TimeLine,Setting,SinglePost } from './screen';
 import PrivateRoute from './auth/PrivateRoute';
+import './app.css';
 export default function MainRoutes() {
     return (
         <Switch>

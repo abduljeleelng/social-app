@@ -48,7 +48,7 @@ export default class Home extends Component {
         });
     }
     render() {
-        const {loadPost,loadStory,loadEvent,loadBirth,user,posts,birth,bMonth,loadBMonth}=this.state;
+        const {loadPost,loadBirth,user,posts,birth,bMonth,loadBMonth}=this.state;
         return (
             <Fragment>
                 <Header user={user} />
