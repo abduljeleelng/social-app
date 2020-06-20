@@ -40,14 +40,15 @@ export default class Create extends Component {
         posts().then(posts=>{
             //console.log(JSON.stringify(posts))
             //this.setState({loading:false});
-            if(posts.error){
+            /*if(posts.error){
               console.log(JSON.stringify(posts));
             }else{
               this.props.updatePosts(posts);
               this.setState({loading:false,body:'',photo:'',});
             }
-          //this.props.updatePosts(posts);
-          //this.setState({loading:false,body:'',photo:''});
+            */
+          this.props.updatePosts(posts);
+          this.setState({loading:false,body:'',photo:''});
         });
         this.setState({loading:false,body:'',photo:''})
       }else{
