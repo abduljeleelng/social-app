@@ -56,7 +56,7 @@ export default class TimeLine extends Component {
     })
     imageList(userId).then(data=>{
       //console.log(JSON.stringify(data))
-      //this.setState({photos:data.posts})
+      this.setState({photos:data})
     })
   }
   componentDidUpdate(preProps){
@@ -77,7 +77,7 @@ export default class TimeLine extends Component {
     }
   }
   render() {
-    const {user,posts,loadPosts,about,loadAbout,loadEvent,events,photos,friends}= this.state;
+    const {user,posts,loadPosts,about,loadEvent,events,photos,friends}= this.state;
     //friends
     //console.log(JSON.stringify({photos}))
     //const friends = about.friends.length;
