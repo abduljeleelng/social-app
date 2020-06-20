@@ -69,6 +69,7 @@ export default function TimeLineEvent({events,photos}) {
                               <ul className="profile-img-gallary d-flex flex-wrap p-0 m-0">
                                 {
                                   photos.length >0 ? photos.map((photo,i)=>{
+                                    //console.log(JSON.stringify(photo))
                                     return(
                                       <li className="col-md-4 col-6 pl-2 pr-0 pb-3" key={i}><a href><img src={`${photoAPI}/${photo._id}`}alt="" className="img-fluid" /></a></li>
                                     )
