@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
-//import BackgroundSlider from 'react-background-slider'
+
 import {SignInHeader,Footer} from '../../components';
 
 
-//import bg1 from '../../asset/img/slide/bg1.jpg';
-//import bg2 from '../../asset/img/slide/bg2.jpg';
-//import bg3 from '../../asset/img/slide/bg3.png';
-//import bg4 from '../../asset/img/slide/bg4.png';
-//import bg5 from '../../asset/img/slide/bg5.jpg';
+
 
 import { Col,Container,Row } from 'reactstrap';
 import catho from '../../asset/img/catho.png';
