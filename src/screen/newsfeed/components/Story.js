@@ -37,7 +37,7 @@ export default function Story() {
       </div>
     </li>
   </ul>
-  <a href="#" className="btn btn-primary d-block mt-3">See All</a>
+  <a href className="btn btn-primary d-block mt-3">See All</a>
 </div>
 </div>
 </div>
