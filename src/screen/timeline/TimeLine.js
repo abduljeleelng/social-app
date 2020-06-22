@@ -59,6 +59,10 @@ export default class TimeLine extends Component {
       this.setState({photos:data})
     })
   }
+  
+  updatePosts=posts=>{
+    this.setState({posts});
+  }
   componentDidUpdate(preProps){
     const userId  = this.props.match.params.userId;
     if(userId !== this.state.userId){
@@ -180,7 +184,7 @@ export default class TimeLine extends Component {
                       <TimeLineEvent events={events} photos={photos} friends={friends} />
                     </ReactPlaceholder>
                     <div className="col-lg-8">
-                      <Create user={user} />
+                      <Create user={user} updatePosts={this.updatePosts} />
                       <ReactPlaceholder showLoadingAnimation  rows={7} ready={loadPosts}>
                         <Post posts={posts} />
                       </ReactPlaceholder>

@@ -2,7 +2,7 @@ import React, { Component,Fragment  } from 'react';
 import ReactPlaceholder from 'react-placeholder';
 import "react-placeholder/lib/reactPlaceholder.css";
 
-import { Create,Header,Post, Story,Event, Birthday,BirthdayMonth} from './components';
+import { Create,Header,Post, Birthday,BirthdayMonth} from './components';
 
 import '../../custom/css/typography.css';
 import '../../custom/css/style.css';
