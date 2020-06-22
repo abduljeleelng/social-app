@@ -49,11 +49,11 @@ export default function FriendList({about}) {
                                             <i className="ri-check-line mr-1 text-white font-size-16" /> Friend
                                           </span>
                                           <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton01">
-                                            <a className="dropdown-item" href="#">Get Notification</a>
-                                            <a className="dropdown-item" href="#">Close Friend</a>
-                                            <a className="dropdown-item" href="#">Unfollow</a>
-                                            <a className="dropdown-item" href="#">Unfriend</a>
-                                            <a className="dropdown-item" href="#">Block</a>
+                                            <a className="dropdown-item" href>Get Notification</a>
+                                            <a className="dropdown-item" href>Close Friend</a>
+                                            <a className="dropdown-item" href>Unfollow</a>
+                                            <a className="dropdown-item" href>Unfriend</a>
+                                            <a className="dropdown-item" href>Block</a>
                                           </div>
                                         </div>
                                       </div>
@@ -83,7 +83,7 @@ export default function FriendList({about}) {
                                 <div className="iq-friendlist-block">
                                   <div className="d-flex align-items-center justify-content-between">
                                     <div className="d-flex align-items-center">
-                                      <a href="#">
+                                      <a href>
                                         <img src="images/user/07.jpg" alt="profile-img" className="img-fluid" />
                                       </a>
                                       <div className="friend-info ml-3">
@@ -97,11 +97,11 @@ export default function FriendList({about}) {
                                           <i className="ri-check-line mr-1 text-white font-size-16" /> Friend
                                         </span>
                                         <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton31">
-                                          <a className="dropdown-item" href="#">Get Notification</a>
-                                          <a className="dropdown-item" href="#">Close Friend</a>
-                                          <a className="dropdown-item" href="#">Unfollow</a>
-                                          <a className="dropdown-item" href="#">Unfriend</a>
-                                          <a className="dropdown-item" href="#">Block</a>
+                                          <a className="dropdown-item" href>Get Notification</a>
+                                          <a className="dropdown-item" href>Close Friend</a>
+                                          <a className="dropdown-item" href>Unfollow</a>
+                                          <a className="dropdown-item" href>Unfriend</a>
+                                          <a className="dropdown-item" href>Block</a>
                                         </div>
                                       </div>
                                     </div>
@@ -118,7 +118,7 @@ export default function FriendList({about}) {
                                 <div className="iq-friendlist-block">
                                   <div className="d-flex align-items-center justify-content-between">
                                     <div className="d-flex align-items-center">
-                                      <a href="#">
+                                      <a href>
                                         <img src="images/user/19.jpg" alt="profile-img" className="img-fluid" />
                                       </a>
                                       <div className="friend-info ml-3">
@@ -132,11 +132,11 @@ export default function FriendList({about}) {
                                           <i className="ri-check-line mr-1 text-white font-size-16" /> Friend
                                         </span>
                                         <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton39">
-                                          <a className="dropdown-item" href="#">Get Notification</a>
-                                          <a className="dropdown-item" href="#">Close Friend</a>
-                                          <a className="dropdown-item" href="#">Unfollow</a>
-                                          <a className="dropdown-item" href="#">Unfriend</a>
-                                          <a className="dropdown-item" href="#">Block</a>
+                                          <a className="dropdown-item" href>Get Notification</a>
+                                          <a className="dropdown-item" href>Close Friend</a>
+                                          <a className="dropdown-item" href>Unfollow</a>
+                                          <a className="dropdown-item" href>Unfriend</a>
+                                          <a className="dropdown-item" href>Block</a>
                                         </div>
                                       </div>
                                     </div>
@@ -148,7 +148,8 @@ export default function FriendList({about}) {
                         </div>
                         <div className="tab-pane fade" id="home" role="tabpanel">
                           <div className="iq-card-body p-0">
-                            <div className="row">
+                          { /* 
+                           <div className="row">
                               <div className="col-md-6 col-lg-6 mb-3">
                                 <div className="iq-friendlist-block">
                                   <div className="d-flex align-items-center justify-content-between">
@@ -179,10 +180,12 @@ export default function FriendList({about}) {
                                 </div>
                               </div>
                             </div>
+                          */}
                           </div>
                         </div>
                         <div className="tab-pane fade" id="following" role="tabpanel">
                           <div className="iq-card-body p-0">
+                       {     /*
                             <div className="row">
                               <div className="col-md-6 col-lg-6 mb-3">
                                 <div className="iq-friendlist-block">
@@ -214,6 +217,7 @@ export default function FriendList({about}) {
                                 </div>
                               </div>
                             </div>
+                          */}
                           </div>
                         </div>
                       </div>
