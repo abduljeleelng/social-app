@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 //import ReactPlaceholder from 'react-placeholder';
 import "react-placeholder/lib/reactPlaceholder.css";
-import {Header,Footer} from '../newsfeed/components'
+import {Header} from '../newsfeed/components'
 //import SweetAlert from 'sweetalert2-react';
 import Swal from 'sweetalert2';
 import logo from './img/profileIcon.png';
