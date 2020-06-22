@@ -9,7 +9,7 @@ import profileIcon from './img/profileIcon.png'
 import { profilePhoto } from '../timeline/api';
 import { isAuthenticated } from '../../auth';
 import { photoAPI, like, unlike, deletePost,singlePost,birthday,birthdayMonth } from './api';
-import { Comment,Create,Header, Story,Event, Birthday,BirthdayMonth} from './components';
+import { Comment, Header, Birthday,BirthdayMonth} from './components';
 
 
 const timeAgo = (prevDate) => {
