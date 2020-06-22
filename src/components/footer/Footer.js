@@ -7,7 +7,8 @@ export default function Footer() {
         position:"fixed",                 
         bottom:0, 
         width:"100%",
-        backgroundColor:"#000000",                  
+        backgroundColor:"#000000", 
+        opacity:"0.5",                 
     }
     return (
         <footer style={style} >
