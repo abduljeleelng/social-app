@@ -8,7 +8,7 @@ export default function Footer() {
         bottom:0, 
         width:"100%",
         backgroundColor:"#000000", 
-        opacity:"0.5",                 
+        opacity:"0.8",                 
     }
     return (
         <footer style={style} >
