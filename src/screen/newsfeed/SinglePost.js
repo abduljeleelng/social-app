@@ -328,7 +328,7 @@ export default class SinglePost extends Component {
 
 
     render(){
-        const {loadPost,loadStory,loadEvent,loadBirth,user,post,like,likes,comments,birth,bMonth,loadBMonth}=this.state;
+        const {loadPost,loadBirth,user,post,like,likes,comments,birth,bMonth,loadBMonth}=this.state;
         return (
             <Fragment>
                 <Header user={user} />
