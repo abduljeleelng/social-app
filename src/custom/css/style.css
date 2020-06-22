@@ -750,7 +750,7 @@ Footer
 .iq-footer { background: var(--iq-dark-box) !important; padding: 15px; margin-left: 250px; width: calc(100vw - 490px); -webkit-box-shadow: 0px 0px 20px 0px rgba(44, 101, 144, 0.1); -moz-box-shadow: 0px 0px 20px 0px rgba(44, 101, 144, 0.1); box-shadow: 0px 0px 20px 0px rgba(44, 101, 144, 0.1); -webkit-transition: all 0.3s ease-out 0s; -moz-transition: all 0.3s ease-out 0s; -ms-transition: all 0.3s ease-out 0s; -o-transition: all 0.3s ease-out 0s; transition: all 0.3s ease-out 0s; }
 .iq-footer ul li a { color: var(--iq-dark-body-text); }
 .iq-footer ul li a:hover { color: var(--iq-primary); text-decoration: none; }
-.bg-banner-image.style-three { height: 150px; background: url(''); }
+/*.bg-banner-image.style-three { height: 150px; background: url(''); }*/
 /*../images/bg-03.jpg*/
 .iq-mt--70 { margin-top: -70px }
 .banner-main-text { position: absolute; left: 15%; bottom: 13%; }
