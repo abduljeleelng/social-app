@@ -78,10 +78,6 @@ export default class TimeLine extends Component {
   }
   render() {
     const {user,posts,loadPosts,about,loadEvent,events,photos,friends}= this.state;
-    //friends
-    //console.log(JSON.stringify({photos}))
-    //const friends = about.friends.length;
-    ///console.log(JSON.stringify({friends,loadAbout}))
     return (
     <Fragment>
     <div>
