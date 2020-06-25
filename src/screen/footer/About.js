@@ -4,7 +4,7 @@ import {SignInHeader, Footer} from '../../components';
 
 import { Col,Container,Row } from 'reactstrap';
 //import catho from '../../asset/img/catho.png';
-import catho from '';
+import catho from './img/catholic.png';
 
 
 export default class About extends Component {
