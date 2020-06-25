@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import {SignInHeader, Footer} from '../../components';
 
 import { Col,Container,Row } from 'reactstrap';
-import catho from '../../asset/img/catho.png';
+//import catho from '../../asset/img/catho.png';
+import catho from '';
 
 
 export default class About extends Component {
