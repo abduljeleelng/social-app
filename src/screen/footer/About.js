@@ -35,7 +35,7 @@ export default class About extends Component {
                     <Col xs="12" md="3" sm="12" lg="3" xl="3" ></Col>
                     <Col xs="12" md="3" sm="12" lg="6" xl="6"  className="center" style={{margin:20,marginBottom:100,backgroundColor:'#000',padding:20,borderRadius:20,opacity:0.9,boxShadow:1}}>
                         <h1 style={{alignContent:"center",margin:25}}>Why <b>Iamacatholic</b> Exists</h1>
-                        <img src={catho} alt="catho" style={{alignSelf:'center',float:'inline-start', margin:15}} />
+                        <img src={catho} alt="catho" className="img-fluid" style={{alignSelf:'center',float:'inline-start', margin:15}} />
                     <p style={{fontSize:20}}>
                     Iamacatholic’s mission is to bring together all Catholics worldwide under
                     one unique community and grow. We want to connect the people who have the 
